@@ -1,0 +1,16 @@
+{
+  "name": "2024-node-project",
+  "version": "1.0.0",
+  "description": "My learning project",
+  "main": "todo.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Manisha Prasad",
+  "license": "ISC",
+  "dependencies": {
+    "lodash": "^4.17.21",
+    "reactjs": "^1.0.0",
+    "rxjs": "^7.8.1"
+  }
+}
