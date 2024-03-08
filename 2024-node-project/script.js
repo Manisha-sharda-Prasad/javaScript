@@ -280,7 +280,7 @@
 //     console.log("Both win the trophy")
 // }
 
-// extra--
+// extra----
 // const scoreDolphins = (97 + 112 + 101)/ 3;
 // const scoreKoalas = (109 + 95 + 106)/ 3;
 // console.log(scoreDolphins, scoreKoalas);
@@ -301,61 +301,111 @@
 
 //------------------------------------------------
 // The Switch Statement-->
+
 //  const day = prompt("Please enter day");
- const day = "monday";
+//  const day = "monday";
 
-switch(day){
-  case'monday':
-    console.log("Work from home:- Plan weekdays and work accordingly!");
-    console.log("Attend zoom meetings.");
-    console.log("Write API's");
-  break;
+// switch(day){
+//   case'monday':
+//     console.log("Work from home:- Plan weekdays and work accordingly!");
+//     console.log("Attend zoom meetings.");
+//     console.log("Write API's");
+//   break;
 
-  case'tuesday':
-  case'wednesday':
-  case'thursday':  
-    console.log("Go to office.");
-    console.log("Meeting with off-shore team @ 9pm.");
-  break;
+//   case'tuesday':
+//   case'wednesday':
+//   case'thursday':  
+//     console.log("Go to office.");
+//     console.log("Meeting with off-shore team @ 9pm.");
+//   break;
 
-  case'friday':
-     console.log("Work from home.");
-     console.log("Deploly program, Fix Bugs if any.");
-     console.log("Study after 7 pm.");
-  break;
+//   case'friday':
+//      console.log("Work from home.");
+//      console.log("Deploly program, Fix Bugs if any.");
+//      console.log("Study after 7 pm.");
+//   break;
   
-  case 'saturday':
-  case  'sunday':
-    console.log("Yayy! Relax and Enjoy your weekend!!!" );
-    console.log("If no weeknd plans, then Study!!");
-  break;
+//   case 'saturday':
+//   case  'sunday':
+//     console.log("Yayy! Relax and Enjoy your weekend!!!" );
+//     console.log("If no weeknd plans, then Study!!");
+//   break;
 
-  default:
-    console.log("Oops..Not a valid day!");
-  break;  
+//   default:
+//     console.log("Oops..Not a valid day!");
+//   break;  
+//  }
 
- }
-//--------
+//--same- with if/else, and logical operator:--
 
- if (day === "monday"){
-  console.log("Work from home:- Plan weekdays and work accordingly!");
-  console.log("Attend zoom meetings.");
-  console.log("Write API's")
-}
- else if (day === "tuesday" || day === "wednesday" || day === " thursday"){
-  console.log("Go to office.");
-  console.log("Meeting with off-shore team @ 9pm.");
- }
- else if (day === " friday"){
-  console.log("Work from home.");
-  console.log("Deploly program, Fix Bugs if any.");
-  console.log("Study after 7 pm.");
+//  if (day === "monday"){
+//   console.log("Work from home:- Plan weekdays and work accordingly!");
+//   console.log("Attend zoom meetings.");
+//   console.log("Write API's")
+//  }
+//  else if (day === "tuesday" || day === "wednesday" || day === " thursday"){
+//   console.log("Go to office.");
+//   console.log("Meeting with off-shore team @ 9pm.");
+//  }
+//  else if (day === " friday"){
+//   console.log("Work from home.");
+//   console.log("Deploly program, Fix Bugs if any.");
+//   console.log("Study after 7 pm.");
 
- }
- else if (day === " saturday" || day === "sunday"){
-  console.log("Yayy! Relax and Enjoy your weekend!!!" );
-  console.log("If no weeknd plans, then Study!!");
- }
- else {
-  console.log ("Oops..Not a valid day!")
- }
+//  }
+//  else if (day === " saturday" || day === "sunday"){
+//   console.log("Yayy! Relax and Enjoy your weekend!!!" );
+//   console.log("If no weeknd plans, then Study!!");
+//  }
+//  else {
+//   console.log ("Oops..Not a valid day!")
+//  }
+
+//----------------------------------------------
+// Statements and Expressions-->
+
+// _Statements are full sentences, it doesn't produce a value. normal spoken lang ends with a semicolon; bigger piece of code that is executed:
+
+//e.g- if (23 > 18) {
+//   const str = "23 is bigger";}
+// } (string is also an expression, it has boolean value.)
+
+// _Expression produces a value.:
+
+//e.g- 3+4, 1991(doesn't produce avalue still expression,will produce avalue in JS),
+//true && false && !false.(gives boolean value) 
+
+// const me = "Manisha";
+// console.log(`I'm ${me} ${(2024 - 1995)} years old.`);
+
+
+//-------------------------------------------------
+// The Condition (Ternary) Operator-->
+
+// condition op also called Ternary as it has three parts(condition >=, if , else statements.) 
+// It helps write if/else with operators inh one line.
+// operator produces avalue , so it's also a Expression.
+
+// const age = 23;
+// age >= 18 ? console.log ('I like to drink wine.') :
+// console.log (" I like to drink water.");
+
+//Right e.g-(stored in a variable{drink})--
+
+// const age = 23;
+// const drink = age >= 18 ? "wine" : "water" ;
+// console.log(drink);
+
+// Also using Ternary inside a `Template literal`--
+// using logical operators as in a expression --
+
+// console.log(`I like to drink ${age >= 18 ? "wine" : "water"}`);
+
+// TEST----
+// const bill = 275;
+
+// const tip = (bill <= 300 && bill >= 50) ? bill * (15/100) : bill * (20/100);
+
+// console.log(`The bill was ${bill}, and the tip was ${tip}, and the total value ${tip + bill}.`);
+
+//----------------------------------------------------------
