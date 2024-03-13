@@ -147,6 +147,7 @@
 //------------------------------------------------------
 // //Array Functions-->
 //array and objects are e.g of Data structure,container with variables.
+//array should be in a orderd way so it can be accesed.
 //literal syntax of array-
 // const friends = ['Meera', 'Bedi', 'Jamaal', 'Riyaz'];
 // console.log(friends);
@@ -206,7 +207,7 @@
 // console.log(friends);
 // console.log(newLength);
 
-//Remove elements-
+// Remove elements-
 // friends.pop();   // remove last
 // const popped = friends.pop(); // not always usefull to store in var.
 // console.log(friends);
@@ -257,3 +258,88 @@
 // console.log(tip1, tip2, tip3);
 
 //--------------------------------------------------------------------
+//Objects-->
+//(Grouping of unstrucured data, order of poperties in object doesn't matter -like we do in Arrays).
+//Key:Value / Var:Value-
+
+//manisha properties-
+
+// const manisha = {
+//     firstName : 'Manisha',
+//     lastName : 'Prasad',
+//     age : 2024 - 1995,
+//     address : '40' +' Tangelo'+ ' Irvine',
+//     friends : ['Michael', 'Peter', 'Steven']
+// };
+// console.log(manisha);
+
+// Dot vs. Bracket-------
+
+// console.log(manisha.lastName);
+// console.log(manisha['lastName']);  // can put any expression [].
+
+
+// const nameKey = 'Name';
+// console.log(manisha['first' + nameKey]); // won't work with ( .'first'+ nameKey).
+// console.log(manisha['last' + nameKey]); //[inside will be evaluated first] for expression which produces a value.
+
+// prompt-
+
+// const interestedIn = prompt('What do you want to know about Manisha? Choose between firstName, lastName, age, address and friends');
+// console.log(manisha[interestedIn]); // (manisha.interestedIn) is wrong as interestedIn doesn't exist in manisha properties.
+
+// if/else-
+
+// if (manisha[interestedIn]) {
+//     console.log(manisha[interestedIn]);
+// }else{
+//     console.log('Wrong Request! Choose between firstName, lastName, age, address and friends')
+// }
+
+// manisha.martialStatus = 'Married';
+// manisha['twitter'] = '@manishaIcha'
+// console.log(manisha);
+
+// coding challenge-
+// Objects with Template Literal--
+
+//  console.log(`${manisha.firstName} has ${manisha.friends.length} friends, and her bestfriend is called ${manisha.friends[1]}.`);
+
+//------------------------------------------------
+//Object Methods-->
+// const manisha = {
+//         firstName : 'Manisha',
+//         lastName : 'Prasad',
+//         birthYear :  1995,
+//         job : 'teacher',
+//         address : '40' +' Tangelo'+ ' Irvine',
+//         friends : ['Michael', 'Peter', 'Steven'],
+//         hasDrivingLicence : false,
+
+        // calcAge : function(birthYear) {
+        //     return 2024- birthYear;}
+
+        // calcAge : function() {
+        //     console.log(this);
+        //       return 2024- this.birthYear;
+        // }
+        // calcAge : function() {
+        //     // this.fullName = (this.firstName  + ' ' +this.lastName); 
+        //         this.age = 2024- this.birthYear;
+        //           return this.age;
+        //     },
+
+        // printSummary : function() {
+        //     console.log(`${this.firstName} is a ${this.calcAge()}  year old ${this.job} and she has ${this.hasDrivingLicence ? 'a'  : 'no'} driving licence.`)
+        // }
+
+        
+    // };
+
+    
+
+    // console.log(manisha.calcAge());
+    // console.log(manisha.age);
+    // console.log(manisha.age, manisha.fullName);
+
+// manisha.printSummary();
