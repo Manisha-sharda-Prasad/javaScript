@@ -343,3 +343,210 @@
     // console.log(manisha.age, manisha.fullName);
 
 // manisha.printSummary();
+
+//Test-----
+
+// const BMI = mass/ (height * height);
+
+
+// const mark = {
+//     fullName : 'Mark Miller',
+//     mass : 78,
+//     height : 1.69,
+//     calcBMI : function() {            
+//         this.bmi = this.mass / this.height ** 2;
+//          return this.bmi;
+//     }      
+// };
+
+// const john = {
+//     fullName : 'John Smith',
+//     mass : 92,
+//     height : 1.95,
+//     calcBMI : function() { 
+//          this.bmi = this.mass / this.height ** 2;
+//          return this.bmi;
+//     }
+// };
+
+// mark.calcBMI();
+// john.calcBMI();
+
+// console.log(mark.bmi, john.bmi);
+
+
+// if (mark.bmi > john.bmi){
+
+//     console.log(`${mark.fullName}'s BMI (${mark.bmi}) is higher than ${john.fullName}'s BMI (${john.bmi})`)
+// }
+// else if(john.bmi > mark.bmi) {
+//     console.log(`${john.fullName}'s BMI (${john.bmi}) is higher than ${mark.fullName}'s BMI (${mark.bmi})`)
+// }
+
+//---------------------------------------------------------------
+// Iteration: For Loop-->
+// for loop keeps running while condition is TRUE
+
+// for ( let rep = 1; rep <= 10; rep++) {
+//     console.log('Lifting weights repetition 1');
+// }
+// for ( let rep = 5; rep <= 10; rep++) {
+//     console.log(`Lifting weights repetition ${rep}`);
+// }
+//----------------------------------------------------------------
+//Looping Arrays, Breaking and Continuing-->
+// const jonas= [
+//  'Jonas',
+//  'Schmedtmann',
+//   2037 - 1991,
+//   'teacher',
+//   ['Michael', 'Peter', 'Steven'],
+//   true,
+// ];
+
+// for (let i = 0; i < 5; i ++) {
+//     console.log(jonas[i]);
+// }
+// const types = [];
+
+// for (let i = 0; i < jonas.length; i ++) {
+//     //reading from jonas array-
+//     console.log(jonas[i], typeof jonas[i]);
+
+    //filling types arrays-
+    //types[i] = typeof jonas[i];
+//     types.push(typeof jonas[i]); // pushing (value)->(typeof jonas) in empty "types" []array.
+//  }
+
+// console.log(types);
+
+// const years = [1991, 2000, 2008, 2024];
+// const ages = [];
+
+// for (let i = 0; i < years.length; i++) {
+//   ages.push(2037-years[i]); //(push value() .ages[]
+// }
+
+// console.log(ages);
+
+//Continue and Break--
+//Continue-
+
+// console.log('---ONLY STRINGS---')
+// for (let i = 0; i < jonas.length; i ++) {
+//     if (typeof jonas[i] !== 'string') continue;
+
+//        console.log(jonas[i], typeof jonas[i]);
+// }
+
+//Break-
+
+// console.log('---BREAK WITH NUMBERS---')
+// for (let i = 0; i < jonas.length; i ++) {
+//     if (typeof jonas[i] === "number") break;
+
+//        console.log(jonas[i], typeof jonas[i]);
+// }
+
+//-----------------------------------------------------------------
+//Looping Backwards and Loops in Loops-->
+// const jonas= [
+//     'Jonas',
+//     'Schmedtmann',
+//      2037 - 1991,
+//      'teacher',
+//      ['Michael', 'Peter', 'Steven'],
+//      true,
+//    ];
+
+// 0,1...,4
+//4,3...,0
+
+// for (let i = jonas.length - 1; i >= 0; i--){
+//     console.log(i, jonas[i]); //(counter variable, array backwards)
+// }
+
+// //Loops Inside Loops(rep in exercise)--
+
+// for (let exercise = 1; exercise < 4; exercise++) {
+//     console.log(`------Starting exercise ${exercise}`);
+
+//     for(let rep = 1; rep < 6; rep++){
+//      console.log(`Exercise ${exercise}: Lifting weight repitition ${rep}`);   
+//     }
+// }
+
+//--------------------------------------------------------------------
+// The While Loop--> ( larger variety of situations, don't really need counter var.)
+
+// for ( let rep = 1; rep <= 5; rep++) {
+//         console.log(`Lifting weights repetition ${rep}`);
+// };
+
+// let rep = 1;
+// while (rep <= 5) {
+//     console.log(`WHILE: Lifting weights repetition ${rep}`);
+//     rep++;
+// };
+
+// let dice = Math.trunc( Math.random() * 6) + 1;
+// console.log(dice);
+
+// // (different than !== 6 )--
+// while (dice !== 6)  {
+//     console.log(`You rolled a ${dice}`);
+//     dice = Math.trunc( Math.random() * 6) + 1;
+
+//     if (dice === 6) console.log(`Loop is about to end..`);
+// }
+
+//TEST----
+
+// const calcTip = function (bill) {
+//     return bill >= 50 && bill <= 300 ? bill * 0.15 : bill * 0.2;
+//   }
+
+// const calcAverage = function(arr) {
+//     let sum = 0;
+//     for (let i = 0 ; i < arr.length ; i++){
+//         // sum = sum + arr[i];
+//         sum += arr[i];
+//     }
+//     console.log('sum : ', sum);
+//     return sum / arr.length;
+// }
+
+// const bills = [22, 295, 176, 440, 37, 105, 10, 1100, 86, 52];
+
+// const tips = [];
+// const totals = [];
+
+//other option-------
+// const calcTotal = function (bill , tip) {
+//     return bill + tip}
+
+// const noOfPerson = bills.length; // 10 
+
+// for( let p = 1; p <= noOfPerson ; p++) {
+//  tips[p] = calcTip(bills[p]);
+//  totals[p] = calcTotal(bills[p], tips[p]);
+// } 
+//------------------
+//using calcTip function--
+// for (let i = 0; i < bills.length; i++ ) {
+//     const tip = calcTip(bills[i]);
+//     tips.push(tip);
+//     totals.push(tip + bills[i]);
+// }
+
+// console.log((bills));
+// console.log((tips));
+// console.log((totals));
+
+// //using calcAverage function-
+//  console.log('Average : ',calcAverage(bills));
+//  console.log('Average : ',calcAverage(tips));
+//  console.log('Average : ',calcAverage(totals));
+
+
+//---------------------------------------------------------------------
