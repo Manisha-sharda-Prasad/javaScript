@@ -57,7 +57,7 @@ for (let i = 0; i < jonas.length; i++) {
   console.log(jonas[i], typeof jonas[i]);
 }
 
-Break - console.log("---BREAK WITH NUMBERS---");
+console.log("---BREAK WITH NUMBERS---");
 for (let i = 0; i < jonas.length; i++) {
   if (typeof jonas[i] === "number") break;
 
