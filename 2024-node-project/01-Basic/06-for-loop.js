@@ -3,7 +3,7 @@
 //for loop keeps running while condition is TRUE
 
 for (let rep = 1; rep <= 10; rep++) {
-  console.log("Lifting weights repetition 1");
+  console.log('Lifting weights repetition 1');
 }
 for (let rep = 5; rep <= 10; rep++) {
   console.log(`Lifting weights repetition ${rep}`);
@@ -14,11 +14,11 @@ for (let rep = 5; rep <= 10; rep++) {
 let jonas;
 
 jonas = [
-  "Jonas",
-  "Schmedtmann",
+  'Jonas',
+  'Schmedtmann',
   2037 - 1991,
-  "teacher",
-  ["Michael", "Peter", "Steven"],
+  'teacher',
+  ['Michael', 'Peter', 'Steven'],
   true,
 ];
 
@@ -50,16 +50,16 @@ console.log(ages);
 //Continue and Break--
 //Continue-
 
-console.log("---ONLY STRINGS---");
+console.log('---ONLY STRINGS---');
 for (let i = 0; i < jonas.length; i++) {
-  if (typeof jonas[i] !== "string") continue;
+  if (typeof jonas[i] !== 'string') continue;
 
   console.log(jonas[i], typeof jonas[i]);
 }
 
-console.log("---BREAK WITH NUMBERS---");
+console.log('---BREAK WITH NUMBERS---');
 for (let i = 0; i < jonas.length; i++) {
-  if (typeof jonas[i] === "number") break;
+  if (typeof jonas[i] === 'number') break;
 
   console.log(jonas[i], typeof jonas[i]);
 }
@@ -67,11 +67,11 @@ for (let i = 0; i < jonas.length; i++) {
 //-----------------PRG-2------------------------------------------------
 //Looping Backwards and Loops in Loops-->
 jonas = [
-  "Jonas",
-  "Schmedtmann",
+  'Jonas',
+  'Schmedtmann',
   2037 - 1991,
-  "teacher",
-  ["Michael", "Peter", "Steven"],
+  'teacher',
+  ['Michael', 'Peter', 'Steven'],
   true,
 ];
 
@@ -91,3 +91,4 @@ for (let exercise = 1; exercise < 4; exercise++) {
     console.log(`Exercise ${exercise}: Lifting weight repitition ${rep}`);
   }
 }
+//--------------------------------------------------------------------------
