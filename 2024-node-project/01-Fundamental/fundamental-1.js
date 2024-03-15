@@ -23,7 +23,6 @@
 // JavaScriptIsFun = "Yes!";
 // console.log(typeof JavaScriptIsFun);
 //-----------------------------------------
-
 // Math Operators -->
 // const now = 2024;
 // const ageManisha = now - 1995;
@@ -61,7 +60,6 @@
 
 //----------------------------------
 // Operator Precedence -->
-
 
 // let x, y;
 // x = y = 25 - 10 - 5; // x = y = 10, x = 10
@@ -177,25 +175,23 @@
 // const money = 0; // js takes 0 as falsy so result will always be else.
 // if (money) {
 //   console.log("Don't spend it all");
-// } 
+// }
 // else {
 //   console.log("you should get a job!!");
 // }
-
 
 // const moneyTwo = 1000; // true, coz now it has truthy value.
 // if (moneyTwo) {
 //   console.log("You can spend carefully!!");
-// } 
+// }
 // else {
 //   console.log("you should get a job!!");
 // }
 
-
 // let height; // undefined /not assigned a value/false/else.
 // if (height) {
 //   console.log("Yayy height is defined!!");
-// } 
+// }
 // else {
 //   console.log("height is undefined!");
 // }
@@ -205,7 +201,6 @@
 // const age = "18";
 // if (age === 18) console.log("You just became an adult- /strict"); //=== only be true when both value are same(no===no/string===string)
 // if (age == 18) console.log("You just became an adult- /loose"); //== "18" string converted to no./avoid loose equality operator may lead to bugs in codes.
-
 
 // const favourite = Number(prompt("What's your favourite number?"));
 // console.log (favourite);
@@ -223,12 +218,10 @@
 
 // if (favourite !== 23) console.log("Why not 23!!");//when it is not (equal to) != = 23.
 
-
 //---------------------------------------------------
 // Logical Operators-->
 
 // and && both should be true// or|| one should be true// not! invert some of the value//
-
 
 // const hasDriverLicence = true; //A
 // // const hasDriverLicence = false; //A
@@ -245,7 +238,6 @@
 // else {
 //   console.log("Sarah should not drive:(");
 // }
-
 
 // if (hasDriverLicence || hasGoodVision){
 //   console.log("Sarah can drive!!!");
@@ -264,34 +256,34 @@
 //     console.log("Sarah should not drive:(");
 //   }
 
-//TEST----------
+//TEST 1----------
 // const scoreDolphins = (96 + 108 + 89)/ 3;
 // const scoreKoalas = (88 + 91 + 110)/ 3;
 // console.log(scoreDolphins, scoreKoalas);
-  
+
 // if (scoreDolphins > scoreKoalas){
 //     console.log("Dolphins win the trophy");
 // }
 // else if (scoreKoalas > scoreDolphins){
 //     console.log("Koalas win the trophy");
 // }
-  
+
 // else if (scoreDolphins === scoreKoalas ){
 //     console.log("Both win the trophy")
 // }
 
-// extra----
+// Test 2-extra----
 // const scoreDolphins = (97 + 112 + 101)/ 3;
 // const scoreKoalas = (109 + 95 + 106)/ 3;
 // console.log(scoreDolphins, scoreKoalas);
-  
+
 // if (scoreDolphins > scoreKoalas && scoreDolphins >= 100 ){
 //     console.log("Dolphins win the trophy");
 // }
 // else if (scoreKoalas > scoreDolphins && scoreKoalas >= 100){
 //     console.log("Koalas win the trophy");
 // }
-  
+
 // else if (scoreDolphins === scoreKoalas && scoreDolphins >= 100 && scoreKoalas >= 100){
 //     console.log("Both win the trophy");
 // }
@@ -314,7 +306,7 @@
 
 //   case'tuesday':
 //   case'wednesday':
-//   case'thursday':  
+//   case'thursday':
 //     console.log("Go to office.");
 //     console.log("Meeting with off-shore team @ 9pm.");
 //   break;
@@ -324,7 +316,7 @@
 //      console.log("Deploly program, Fix Bugs if any.");
 //      console.log("Study after 7 pm.");
 //   break;
-  
+
 //   case 'saturday':
 //   case  'sunday':
 //     console.log("Yayy! Relax and Enjoy your weekend!!!" );
@@ -333,7 +325,7 @@
 
 //   default:
 //     console.log("Oops..Not a valid day!");
-//   break;  
+//   break;
 //  }
 
 //--same- with if/else, and logical operator:--
@@ -373,16 +365,15 @@
 // _Expression produces a value.:
 
 //e.g- 3+4, 1991(doesn't produce avalue still expression,will produce avalue in JS),
-//true && false && !false.(gives boolean value) 
+//true && false && !false.(gives boolean value)
 
 // const me = "Manisha";
 // console.log(`I'm ${me} ${(2024 - 1995)} years old.`);
 
-
 //-------------------------------------------------
 // The Condition (Ternary) Operator-->
 
-// condition op also called Ternary as it has three parts(condition >=, if , else statements.) 
+// condition op also called Ternary as it has three parts(condition >=, if , else statements.)
 // It helps write if/else with operators inh one line.
 // operator produces avalue , so it's also a Expression.
 
@@ -409,4 +400,3 @@
 // console.log(`The bill was ${bill}, and the tip was ${tip}, and the total value ${tip + bill}.`);
 
 //----------------------------------------------------------
-

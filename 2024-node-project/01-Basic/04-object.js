@@ -24,10 +24,10 @@ console.log(manisha["first" + nameKey]); // won't work with ( .'first'+ nameKey)
 console.log(manisha["last" + nameKey]); //[inside will be evaluated first] for expression which produces a value.
 
 //prompt-
-const interestedIn = prompt(
-  "What do you want to know about Manisha? Choose between firstName, lastName, age, address and friends"
-);
-console.log(manisha[interestedIn]); // (manisha.interestedIn) is wrong as interestedIn doesn't exist in manisha properties.
+// const interestedIn = prompt(
+//   "What do you want to know about Manisha? Choose between firstName, lastName, age, address and friends"
+// );
+// console.log(manisha[interestedIn]); // (manisha.interestedIn) is wrong as interestedIn doesn't exist in manisha properties.
 
 //if/else
 if (manisha[interestedIn]) {
