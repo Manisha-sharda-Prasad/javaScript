@@ -9,6 +9,7 @@
   "author": "Manisha Prasad",
   "license": "ISC",
   "dependencies": {
+    "live-server": "^1.2.2",
     "lodash": "^4.17.21",
     "reactjs": "^1.0.0",
     "rxjs": "^7.8.1"
