@@ -43,3 +43,30 @@ logger();  // re-use-1
 logger();
 
 */
+
+let globalvar = 'global';
+
+{
+  let blockvar = 'block';
+  console.log(blockvar); // Accessible
+}
+
+function test() {
+  //block
+  if (true) {
+    var innerBlockVar = 'innerBlockVar';
+    console.log('1. Accessing inside inner block ', innerBlockVar);
+  }
+  console.log('2. Accessing outside inner block ', innerBlockVar); // Accessible ?
+
+  let localvar = 'local';
+  console.log(localvar);
+  console.log(globalvar); // Accessible
+}
+
+test();
+
+/* finding inshort:
+var - function scoped
+let/const - block scoped.
+*/
