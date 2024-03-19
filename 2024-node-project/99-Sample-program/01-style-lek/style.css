@@ -1,0 +1,13 @@
+.border-1 {
+  height: 100px;
+  width: 100px;
+  border: 2px solid black;
+}
+
+.bg-light {
+  background-color: rgb(181, 181, 224);
+}
+
+.bg-dark {
+  background-color: rgb(91, 91, 195);
+}
