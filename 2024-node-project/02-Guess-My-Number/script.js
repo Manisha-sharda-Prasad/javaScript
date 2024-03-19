@@ -78,19 +78,19 @@ function abc(lowOrHigh) {
 const againBtnListner = function () {
   console.log('again button is clicked');
 
-  // reset
-  // 1. variable - score, secretNumber
+  // reset-
+  // 1. variable - score, secretNumber--
   secretNumber = Math.trunc(Math.random() * 20) + 1;
   console.log('secretNumber again ', secretNumber);
   score = 20;
 
   // 2. Dom - guess text feild - undefined , message label , score label, bg-clor to black, ? label
-  //2.1. input - value
+  //2.1. input - value--
   document.querySelector('.guess').value = '';
-  //2.2. text content
+  //2.2. text content--
   document.querySelector('.score').textContent = score;
   document.querySelector('.message').textContent = 'Start guessing...';
-  //2.3style
+  //2.3 CSS style--
   document.querySelector('body').style.backgroundColor = 'black';
   document.querySelector('.number').style.color = 'black';
   document.querySelector('.number').style.width = '15rem';
