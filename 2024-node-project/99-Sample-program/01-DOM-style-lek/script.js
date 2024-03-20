@@ -43,4 +43,18 @@ const child_f2 = function () {
 };
 //======================
 
-parentFunction(child_f1, child_f2);
+//parentFunction(child_f1, child_f2);
+
+//setInterval(child_f1, 5000);
+setTimeout(child_f2, 3000);
+
+console.log('last line');
+
+// Datastruture
+//===============
+// Array
+// STACK - Array+LIFO
+// QUEUE - Array+FIFO
+
+f1-- > f2-- > f3-- > f4;
+10 + (9 + (2 + 2 + 3 + 3));
