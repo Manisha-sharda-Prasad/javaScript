@@ -70,3 +70,22 @@ test();
 var - function scoped
 let/const - block scoped.
 */
+
+//declartion
+//1. gf
+const gf = function () {
+  console.log(' Im general function', this);
+};
+
+//2. of
+const o = {
+  of: gf, // object has borrowed
+};
+
+const gf2 = gf; // global var has borrowed
+
+gf(); // und
+gf2();
+
+o.of(); // o
+//-----------------------
