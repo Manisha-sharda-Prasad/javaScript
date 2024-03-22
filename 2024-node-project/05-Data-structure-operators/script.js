@@ -1,8 +1,6 @@
 'use strict';
 //------------------------------------------------
-//Destructuring Array--->
-//unpacking array from an object into separate variables/ break complex data structure into small like a variable --
-// Data needed for a later exercise
+// Data needed for a later exercise-
 const flights =
   '_Delayed_Departure;fao93766109;txl2133758440;11:25+_Arrival;bru0943384722;fao93766109;11:45+_Delayed_Arrival;hel7439299980;fao93766109;12:05+_Departure;fao93766109;lis2323639855;12:30';
 
@@ -32,6 +30,11 @@ const restaurant = {
       `Here is your delicious pasta with ${ing1}, ${ing2} and ${ing3}`
     );
   },
+
+  orderPizza: function (mainIngredients, ...otherIngredients) {
+    console.log(mainIngredients);
+    console.log(otherIngredients);
+  },
   openingHours: {
     thu: {
       open: 12,
@@ -47,6 +50,12 @@ const restaurant = {
     },
   },
 };
+
+//--------------------------------------------------
+
+//Destructuring Array--->
+
+//unpacking array from an object into separate variables/ break complex data structure into small like a variable --
 
 //01.Retrieve elements from array / storing into variable a,b..--
 const arr = [2, 3, 4];
@@ -73,7 +82,7 @@ console.log(main, secondary);
 // secondary = temp;
 // console.log(main, secondary);
 
-//better way--
+//good practice--
 [main, secondary] = [secondary, main];
 console.log(main, secondary);
 
@@ -144,6 +153,7 @@ restaurant.orderDelivery({
 //------------------------------------------------------------------------------
 //Spread Operators---->
 //(expand & unpack an array-into all its elements individually/ but doesn't assign new elements into new var)--
+//(Spread, = [...]right side of assign operator)
 
 //01.1. bad practice-
 const arr1 = [7, 8, 9];
@@ -198,5 +208,45 @@ console.log(newRestaurant);
 const restarauntCopy = { ...restaurant };
 restarauntCopy.name = 'Ristorante Roma';
 console.log(restarauntCopy.name);
-console.log(restaurant);
+console.log(restaurant.name);
 //--------------------------------------------------------------------
+
+// Rest Patterns and Parameters--->
+//(compresss)pack all the elements into an array/opposite of spread(unpack)--
+//(Rest, left[...rest only last] = side of assign operator/ pack rest/others elements into other array)
+
+//01.Spread eg [packed-1-4 in one [array]]:-
+const anArr = [1, 2, ...[3, 4]];
+console.log(anArr);
+
+//01.1.[from 3-6] (rest elements-...others)--
+const [m, n, ...others] = [1, 2, 3, 4, 5, 6];
+console.log(m, n, others);
+
+//02.packing rest(otherFood)--
+const [pizza, , risotto, ...otherFood] = [
+  ...restaurant.mainMenu,
+  ...restaurant.starterMenu,
+];
+console.log(pizza, risotto, otherFood);
+
+//03. Rest Objects--
+const { sat, ...weekdays } = restaurant.openingHours;
+//console.log(sat, weekdays);
+console.log(weekdays);
+
+//04. Rest Functions (...rest arguments)--
+const add = function (...numbers) {
+  let sum = 0;
+  for (let i = 0; i < numbers.length; i++) sum += numbers[i];
+  console.log(sum);
+  //console.log(numbers);
+};
+add(2, 3);
+add(5, 6, 7, 8);
+add(1, 2, 3, 4, 5, 6);
+
+// calling orderPizza method (using rest[mushrooms], [onio,toma,chee] )--
+restaurant.orderPizza('mushrooms', 'onions', 'tomatoes', 'cheese');
+
+//-----------------------------------------------------------------------
