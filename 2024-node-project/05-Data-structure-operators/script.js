@@ -250,3 +250,45 @@ add(1, 2, 3, 4, 5, 6);
 restaurant.orderPizza('mushrooms', 'onions', 'tomatoes', 'cheese');
 
 //-----------------------------------------------------------------------
+//Short Circuiting (&& and ||)--->
+//logical operators- can use and return any Data type, short-circuiting--
+
+console.log('------OR------');
+
+//01.|| operator if the first value is truthy it will return first truthy--
+//(both truthy first value(3) returned- so jony not evaluated)
+console.log(3 || 'jony');
+console.log('' || 23);
+console.log(true || 0);
+console.log(undefined || null);
+console.log('hello' || 23 || ' ' || null || 3 || 'hy'); // printed 1st only ,others not evaluated
+
+//02.
+//restaurant.numOfGuests = 23;
+const guests1 = restaurant.numOfGuests ? restaurant.numOfGuests : 10;
+console.log(guests1); // if numOfGuest exists? else set to : 10;
+
+//02.1
+//falsy value(undefined) || 10 -> result 10.
+const guests2 = restaurant.numOfGuests || 10;
+console.log(guests2);
+
+console.log('-----AND------');
+//03 && operator if any value is falsyy it will only return falsy--
+console.log(0 && 'jony');
+console.log('jony' && null);
+console.log(23 && false);
+console.log('hello' && 13); // both truthy 13 -last value returned
+console.log('hello' && 23 && ' ' && null && 3); // null -one is false
+
+//-----------------------------------------------------------------------
+//Nullish Coalescing operators(??)-->
+restaurant.numOfGuest = 0;
+
+const guests3 = restaurant.numOfGuest || 10; // 10 is true, result- 10
+console.log(guests3);
+
+//Nullish: ?? null and undefined (not include 0 or '')-
+const guestCorrect = restaurant.numOfGuest ?? 10; // numofguest -0 value coz it exists, result 0
+console.log(guestCorrect);
+//--------------------------------------------------------------------------
