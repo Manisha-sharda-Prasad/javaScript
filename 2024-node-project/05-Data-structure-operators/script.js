@@ -26,6 +26,12 @@ const restaurant = {
       `Order received!! ${this.starterMenu[starterIndex]} and ${this.mainMenu[mainIndex]} will be delivered to ${address} at ${time}.`
     );
   },
+
+  orderPasta: function (ing1, ing2, ing3) {
+    console.log(
+      `Here is your delicious pasta with ${ing1}, ${ing2} and ${ing3}`
+    );
+  },
   openingHours: {
     thu: {
       open: 12,
@@ -136,3 +142,61 @@ restaurant.orderDelivery({
   starterIndex: 2,
 });
 //------------------------------------------------------------------------------
+//Spread Operators---->
+//(expand & unpack an array-into all its elements individually/ but doesn't assign new elements into new var)--
+
+//01.1. bad practice-
+const arr1 = [7, 8, 9];
+const badArr = [1, 2, arr1[0], arr1[1], arr1[2]];
+console.log(badArr);
+
+//01.02. good practice-
+const goodArr = [1, 2, ...arr1];
+console.log(goodArr);
+
+//also--
+console.log(...goodArr);
+
+//02.1.Adding more options in main menu ...--
+const newMenu = [...restaurant.mainMenu, 'Gnocci'];
+console.log(newMenu);
+
+//02.2.Copy array--
+const mainMenuCopy = [...restaurant.mainMenu]; //similar to-> object.assign /preserve a copy.
+
+//02.3.Join 2 arrays--
+//const menuNew = [restaurant.mainMenu + restaurant.starterMenu];
+const menuNew = [...restaurant.mainMenu, ...restaurant.starterMenu];
+console.log(menuNew);
+
+//03.Iterables: arrays, strings, maps, sets. (not objects)--
+//spreading all elemnets--
+
+const str = 'Arush';
+const letters = [...str, ' ', 'Gautam.'];
+console.log(letters);
+console.log(...str, ...letters);
+
+//04.calling method orderPasta--
+// const ingredients = [
+//   prompt("Let's make pasta! Ingredient 1?"),
+//   prompt('Ingredients 2?'),
+//   prompt('Ingredients 3?'),
+// ];
+//console.log(ingredients);
+
+//04.1.getting elements of ingredients array--
+//restaurant.orderPasta(ingredients[0],ingredients[1],ingredients[3])
+//better way---
+//restaurant.orderPasta(...ingredients); //I typed in prompt-"mushrooms","cheese","corn"
+
+//05.spread operators in objects/ but obj not iterable/adding more properties in obj --
+const newRestaurant = { foundedIn: 2000, ...restaurant, founder: 'Lekhisha' };
+console.log(newRestaurant);
+
+//06. preserving old obj(data) --
+const restarauntCopy = { ...restaurant };
+restarauntCopy.name = 'Ristorante Roma';
+console.log(restarauntCopy.name);
+console.log(restaurant);
+//--------------------------------------------------------------------
