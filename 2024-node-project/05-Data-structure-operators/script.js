@@ -291,4 +291,44 @@ console.log(guests3);
 //Nullish: ?? null and undefined (not include 0 or '')-
 const guestCorrect = restaurant.numOfGuest ?? 10; // numofguest -0 value coz it exists, result 0
 console.log(guestCorrect);
+
 //--------------------------------------------------------------------------
+//Logical Assignment Operator--->
+
+const rest1 = {
+  name: 'capri',
+  //numGuests: 20,
+  numGuests: 0,
+};
+const rest2 = {
+  name: 'La Piazza',
+  owner: 'Giovanni Rossi',
+};
+
+//01. OR ||assignmenet ---
+//old way---
+// rest1.numGuests = rest1.numGuests || 10; //numGuests -20 , first is true
+// rest2.numGuests = rest2.numGuests || 10;
+
+//also--
+// rest1.numGuests ||= 10;
+// rest2.numGuests ||= 10;
+
+//02.better way-nullish??--
+
+rest1.numGuests ??= 10;
+rest2.numGuests ??= 10;
+
+//03. AND && assignment ---
+//old way--
+// rest1.owner = rest1.owner && '<ANONYMOUS>'; // undefined / owner doesn't exists in rest1.
+// rest2.owner = rest2.owner && '<ANONYMOUS>'; // replaced with '<ANO..>'
+
+//Better way--
+
+rest1.owner &&= '<ANONYMOUS>';
+rest2.owner &&= '<ANONYMOUS>';
+
+console.log(rest1);
+console.log(rest2);
+//---------------------------------------------------------------------------------
