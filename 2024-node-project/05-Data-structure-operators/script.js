@@ -164,7 +164,7 @@ console.log(badArr);
 const goodArr = [1, 2, ...arr1];
 console.log(goodArr);
 
-//also--
+//also --
 console.log(...goodArr);
 
 //02.1.Adding more options in main menu ...--
@@ -212,8 +212,8 @@ console.log(restaurant.name);
 //--------------------------------------------------------------------
 
 // Rest Patterns and Parameters--->
-//(compresss)pack all the elements into an array/opposite of spread(unpack)--
-//(Rest, left[...rest only last] = side of assign operator/ pack rest/others elements into other array)
+//(compresss)pack (rest) all the elements into an array/opposite of spread(unpack)--
+//(Rest, left[...rest only last] = side of assign operator.
 
 //01.Spread eg [packed-1-4 in one [array]]:-
 const anArr = [1, 2, ...[3, 4]];
@@ -230,7 +230,7 @@ const [pizza, , risotto, ...otherFood] = [
 ];
 console.log(pizza, risotto, otherFood);
 
-//03. Rest Objects--
+//03. Rest Objects(skip sat)--
 const { sat, ...weekdays } = restaurant.openingHours;
 //console.log(sat, weekdays);
 console.log(weekdays);
@@ -269,7 +269,7 @@ const guests1 = restaurant.numOfGuests ? restaurant.numOfGuests : 10;
 console.log(guests1); // if numOfGuest exists? else set to : 10;
 
 //02.1
-//falsy value(undefined) || 10 -> result 10.
+//falsy value(undefined) || 10 -> (skipped 1st falsy) result 10(truthy).
 const guests2 = restaurant.numOfGuests || 10;
 console.log(guests2);
 
@@ -285,7 +285,7 @@ console.log('hello' && 23 && ' ' && null && 3); // null -one is false
 //Nullish Coalescing operators(??)-->
 restaurant.numOfGuest = 0;
 
-const guests3 = restaurant.numOfGuest || 10; // 10 is true, result- 10
+const guests3 = restaurant.numOfGuest || 10; // 10 is true, (skipped 0)result- 10
 console.log(guests3);
 
 //Nullish: ?? null and undefined (not include 0 or '')-
@@ -316,8 +316,8 @@ const rest2 = {
 
 //02.better way-nullish??--
 
-rest1.numGuests ??= 10;
-rest2.numGuests ??= 10;
+rest1.numGuests ??= 10; //(exists - '0')
+rest2.numGuests ??= 10; //(doesn't exists - added '10')
 
 //03. AND && assignment ---
 //old way--
