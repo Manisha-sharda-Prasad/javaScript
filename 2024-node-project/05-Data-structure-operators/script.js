@@ -19,19 +19,19 @@ const restaurant = {
   //   console.log(obj);
   // },
 
-  orderDelivery: function ({ starterIndex, mainIndex, time, address }) {
+  orderDelivery({ starterIndex, mainIndex, time, address }) {
     console.log(
       `Order received!! ${this.starterMenu[starterIndex]} and ${this.mainMenu[mainIndex]} will be delivered to ${address} at ${time}.`
     );
   },
 
-  orderPasta: function (ing1, ing2, ing3) {
+  orderPasta(ing1, ing2, ing3) {
     console.log(
       `Here is your delicious pasta with ${ing1}, ${ing2} and ${ing3}`
     );
   },
 
-  orderPizza: function (mainIngredients, ...otherIngredients) {
+  orderPizza(mainIngredients, ...otherIngredients) {
     console.log(mainIngredients);
     console.log(otherIngredients);
   },
@@ -331,4 +331,83 @@ rest2.owner &&= '<ANONYMOUS>';
 
 console.log(rest1);
 console.log(rest2);
+
 //---------------------------------------------------------------------------------
+//Looping Arrays: The For-of-Loop--->
+
+//01.spreading 2 prop in 1 array[]
+const menu1 = [...restaurant.starterMenu, ...restaurant.mainMenu];
+
+//01.1.using of(1st current element)--
+for (const item of menu1) console.log(item);
+
+//01.2.using .entries() (in-built method)--
+//also detructuring (index, elements / i,el)--
+for (const [i, el] of menu1.entries()) {
+  //console.log(item);
+  console.log(`${i + 1}: ${el}`);
+}
+//arrays elements & index--
+//console.log([...menu1.entries()]);
+
+//--------------------------------------------------------------------------
+// Optional Chaining (?)--->
+
+//0.1.checking if property (mon)exists or not---
+//if (restaurant.openingHours.mon) console.log(restaurant.openingHours.mon.open);
+
+//0.1.1 other way ---
+if (restaurant.openingHours && restaurant.openingHours.mon)
+  //console.log(restaurant.openingHours.mon.open);
+  //0.1.2 with Optional Chaining(?)---
+  console.log(restaurant.openingHours.mon?.open);
+
+console.log(restaurant.openingHours?.mon?.open);
+
+//0.2 E.g(?) with nullish (??) / won't replace (0)value (if/else)--
+const days = ['mon', 'tue', 'wed', 'thu', 'fri', 'sat', 'sun'];
+for (const day of days) {
+  const open = restaurant.openingHours[day]?.open ?? 'closed!!'; // using 'var'-[day] for accessing 'property' put[]
+  console.log(`On ${day}, we open at ${open}`);
+}
+
+//0.3. with Methods (? / ??)(if / else)--
+
+console.log(restaurant.order?.(0, 1) ?? 'oops! Method does not exists!!');
+console.log(restaurant.break?.(0) ?? 'oops! Method does not exists!!');
+
+//0.4 with Arrays --
+
+const car = [{ brand: 'Hyundai', size: 'Sedan', color: 'Golden' }];
+
+console.log(car[0]?.name ?? 'Car array empty');
+console.log(car[0]?.size ?? 'Car array empty');
+console.log(car[0]?.color ?? 'Car array empty');
+
+//---------------------------------------------------------------------
+//Looping Objects: Object Keys, Values, Entries--->
+
+// const maniInfo = {
+//   name: 'Manisha Prasad',
+//   height: "5'1",
+//   weight: 52,
+//   education: 'B.A (Fashion Design)',
+//   subjects: {
+//     illustration: {
+//       sketch: liveSession,
+//       croquis: fashionCroquis,
+//     },
+//     garment: {
+//       constrution: patternMaking,
+//       stiching: fabric,
+//     },
+//   },
+//   address: '40 Tangelo, Irvine',
+// };
+
+const properties = Object.keys(openingHours);
+console.log(properties);
+
+for (const day of Object.keys(openingHours)) {
+  console.log(day);
+}
