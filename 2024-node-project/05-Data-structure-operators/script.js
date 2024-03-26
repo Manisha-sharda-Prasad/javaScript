@@ -341,7 +341,7 @@ const menu1 = [...restaurant.starterMenu, ...restaurant.mainMenu];
 //01.1.using of(1st current element)--
 for (const item of menu1) console.log(item);
 
-//01.2.using .entries() (in-built method)--
+//01.2.using .entries(name+value) (in-built method)--
 //also detructuring (index, elements / i,el)--
 for (const [i, el] of menu1.entries()) {
   //console.log(item);
@@ -387,27 +387,59 @@ console.log(car[0]?.color ?? 'Car array empty');
 //---------------------------------------------------------------------
 //Looping Objects: Object Keys, Values, Entries--->
 
-// const maniInfo = {
-//   name: 'Manisha Prasad',
-//   height: "5'1",
-//   weight: 52,
-//   education: 'B.A (Fashion Design)',
-//   subjects: {
-//     illustration: {
-//       sketch: liveSession,
-//       croquis: fashionCroquis,
-//     },
-//     garment: {
-//       constrution: patternMaking,
-//       stiching: fabric,
-//     },
-//   },
-//   address: '40 Tangelo, Irvine',
-// };
-
+//01.Property names--
 const properties = Object.keys(openingHours);
 console.log(properties);
 
-for (const day of Object.keys(openingHours)) {
-  console.log(day);
+let openStrn = `We are open on ${properties.length} days :`;
+
+for (const day of properties) {
+  openStrn += ` ${day},`;
 }
+console.log(openStrn);
+
+//02. property values--
+const values = Object.values(openingHours);
+console.log(values);
+
+//03. Entire objcet--
+const entry = Object.entries(openingHours);
+
+for (const x of entry) {
+  console.log(x);
+}
+//--------------------------------------------------------------------------
+//Sets--->(.size, has(), add(), delete(), clear())
+//no index eg[1]--> undefined always/ cannot get data out of set/ remove duplicate values in [array]
+
+const ordersSet = new Set(['Pasta', 'Pasta', 'pizza', 'pizza', 'Risotto']);
+console.log(ordersSet);
+
+//size--
+console.log(ordersSet.size);
+//has()--
+console.log(ordersSet.has('Pizza'));
+console.log(ordersSet.has('Bread'));
+
+//add()--
+ordersSet.add('Garlic Bread');
+ordersSet.add('Garlic Bread');
+
+//delete()--
+ordersSet.delete('Risotto');
+
+//clear()--
+//ordersSet.clear();
+
+console.log(ordersSet);
+
+for (const order of ordersSet) console.log(order);
+
+//example--
+const staff = ['waiter', 'chef', 'waiter', ' chef', 'manager', 'cleaner'];
+
+//const uniqueStaff = new Set(staff);
+const uniqueStaff = [...new Set(staff)]; // all with ...spread
+console.log(uniqueStaff);
+
+//-------------------------------------------------------------
