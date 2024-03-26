@@ -394,7 +394,7 @@ console.log(properties);
 let openStrn = `We are open on ${properties.length} days :`;
 
 for (const day of properties) {
-  openStrn += ` ${day},`;
+  openStrn += ` ${day},`; //keep adding
 }
 console.log(openStrn);
 
@@ -402,7 +402,7 @@ console.log(openStrn);
 const values = Object.values(openingHours);
 console.log(values);
 
-//03. Entire objcet--
+//03. Entire object(entries (names/keys+values))--
 const entry = Object.entries(openingHours);
 
 for (const x of entry) {
@@ -415,31 +415,169 @@ for (const x of entry) {
 const ordersSet = new Set(['Pasta', 'Pasta', 'pizza', 'pizza', 'Risotto']);
 console.log(ordersSet);
 
-//size--
+//01.size--
 console.log(ordersSet.size);
-//has()--
+//02.has()--
 console.log(ordersSet.has('Pizza'));
 console.log(ordersSet.has('Bread'));
 
-//add()--
+//03.add()--
 ordersSet.add('Garlic Bread');
 ordersSet.add('Garlic Bread');
 
-//delete()--
+//04.delete()--
 ordersSet.delete('Risotto');
 
-//clear()--
+//05.clear()--
 //ordersSet.clear();
 
 console.log(ordersSet);
 
 for (const order of ordersSet) console.log(order);
 
-//example--
+//06.example--
 const staff = ['waiter', 'chef', 'waiter', ' chef', 'manager', 'cleaner'];
+console.log(staff);
+//06.1.new array[] without duplicates---
 
 //const uniqueStaff = new Set(staff);
+
+//06.2.unpacking new set using ...spread---
 const uniqueStaff = [...new Set(staff)]; // all with ...spread
 console.log(uniqueStaff);
+console.log(
+  new Set(['waiter', 'chef', 'waiter', ' chef', 'manager', 'cleaner']).size
+);
+
+console.log(new Set('ManishaPrasad').size);
 
 //-------------------------------------------------------------
+//Maps : Fundamentals---->
+//maps is data structure, it maps values to keys/ data stores in key:values pairs in maps.
+
+//01.maps -updates and returns--
+const rest = new Map(); //create empty map
+rest.set('name', 'Classico Italiano'); //set() works as add()
+rest.set(1, 'Firenze, Italy');
+console.log(rest.set(2, 'Lisbon, Portugal')); //maps above data in one {}
+
+//set-ting ley,values--
+rest
+  .set('categories', ['Italian', 'Pizzeria', 'Vegetarian', 'Organic'])
+  .set('open', 11)
+  .set('close', 23)
+  .set(true, 'We are open !!')
+  .set(false, 'oops! We are Closed!');
+
+//02.Get method()<-read data from map---
+//passing the name of Key--
+
+console.log(rest.get('name'));
+console.log(rest.get('open'));
+console.log(rest.get(true));
+console.log(rest.get(1));
+
+//03.not good practice--
+//const time = 8;
+const time = 21;
+console.log(rest.get(time > rest.get('open') && time < rest.get('close'))); //" we are open"
+
+//04.has ,delete, size, clear--
+console.log(rest.has('categories'));
+
+//rest.clear();
+rest.delete(2);
+console.log(rest.size);
+
+//05.passing array[] as key name, test as value--
+rest.set([1, 2], 'Test');
+console.log(rest);
+
+//---------------------------------------------------------------
+//Maps : Iteration---->
+
+const question = new Map([
+  ['question', 'What is the best programming language in the world?'],
+  [1, 'C'],
+  [2, 'Java'],
+  [3, 'Java Script'],
+  ['correct', 3],
+  [true, 'Correct'],
+  [false, 'Try again'],
+]);
+console.log(question);
+
+//01.Convert Object{} to Map--
+
+console.log(Object.entries(openingHours));
+
+//01.1.map assignig to var--
+const hoursMap = new Map(Object.entries(openingHours));
+console.log(hoursMap);
+
+//02.Quiz app--
+console.log(question.get('question'));
+
+for (const [key, value] of question) {
+  if (typeof key === 'number') console.log(`Answer ${key} : ${value}`);
+}
+//const answer = Number(prompt('Your Answer'));
+const answer = 3;
+console.log(answer);
+
+console.log(question.get(question.get('correct') === answer));
+
+//03.Convert Map to array--
+console.log([...question]);
+//others---
+// console.log([...question.entries()]);
+// console.log([...question.keys()]);
+// console.log([...question.values()]);
+
+//---------------------------------------------------------------------
+//Working with strings--->
+
+const airline = 'TAP Air Portugal';
+const plane = 'A320';
+
+console.log(plane[0]);
+console.log(plane[1]);
+console.log(plane[2]);
+console.log('B737'[0]);
+
+console.log(airline.length);
+console.log('B737'.length);
+
+//01.bad practice--
+//check position--
+console.log(airline.indexOf('r'));
+//last indexOf--
+console.log(airline.lastIndexOf('r')); //including space -'TAP Air Portugal';
+//slice(beginning, endParameter)--
+console.log(airline.slice(4));
+console.log(airline.slice(4, 7)); //1234, - 1234567 -- 'remain value'
+console.log(airline.slice(3, 9)); //_AIR_P
+
+//02.good practice (searching with 'space', index & last index)--
+console.log(airline.slice(0, airline.indexOf(' ')));
+console.log(airline.slice(airline.lastIndexOf(' ') + 1)); //+1 remove extra space printed
+
+//03.printing from last index (-)opposite--
+console.log(airline.slice(-2)); //al
+console.log(airline.slice(-1)); //l
+console.log(airline.slice(1, -1)); // 'AP Air Portuga'
+
+//04. with function--
+
+//B and E are middle seats--
+const checkMiddleSeat = function (seat) {
+  const s = seat.slice(-1);
+  if (s === 'B' || s === 'E') console.log('You got middle seat!');
+  else console.log('You got lucky!!');
+};
+
+// caliing method on string ' ' --
+checkMiddleSeat('11 B');
+checkMiddleSeat('23 C');
+checkMiddleSeat('3 E');
+//-------------------------------------------------------------------
