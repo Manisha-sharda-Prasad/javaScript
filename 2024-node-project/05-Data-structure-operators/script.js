@@ -461,7 +461,7 @@ rest.set('name', 'Classico Italiano'); //set() works as add()
 rest.set(1, 'Firenze, Italy');
 console.log(rest.set(2, 'Lisbon, Portugal')); //maps above data in one {}
 
-//set-ting ley,values--
+//set-ting key,values--
 rest
   .set('categories', ['Italian', 'Pizzeria', 'Vegetarian', 'Organic'])
   .set('open', 11)
@@ -518,6 +518,7 @@ console.log(hoursMap);
 //02.Quiz app--
 console.log(question.get('question'));
 
+//iteration--
 for (const [key, value] of question) {
   if (typeof key === 'number') console.log(`Answer ${key} : ${value}`);
 }
@@ -578,8 +579,8 @@ const checkMiddleSeat = function (seat) {
 checkMiddleSeat('11 B');
 checkMiddleSeat('23 C');
 checkMiddleSeat('3 E');
-
-//05. (lowercase,uppercase,trim,replace,includes,startsWith,endsWith,split,join)----
+//---------------------
+//05.(lower/uppercase,trim,replace,includes,starts/endsWith,split,join,padStart/End,Repeat)----
 console.log(airline.toLowerCase());
 console.log(airline.toUpperCase());
 
@@ -587,7 +588,6 @@ console.log(airline.toUpperCase());
 //e.g.--
 const passenger = 'maNisH';
 const passengerLower = passenger.toLowerCase();
-
 const passengerCorrect =
   passengerLower[0].toUpperCase() + passengerLower.slice(1);
 
@@ -600,7 +600,7 @@ const loginEmail = ' MANISHAPRASAD@.IO \n';
 // const lowerEmail = loginEmail.toLowerCase();
 // const trimmedEmail = lowerEmail.trim();
 
-//better--
+//better(trim())--
 const normalizedEmail = loginEmail.toLowerCase().trim();
 console.log(normalizedEmail);
 console.log(email === normalizedEmail); //true
@@ -632,7 +632,7 @@ if (planeNo.startsWith('Air') && planeNo.endsWith('neo')) {
 
 //07.split() and join()--
 console.log('a+very+nice+string'.split('+'));
-console.log('Manisha Prasad'.split(' '));
+console.log('Manisha Prasad'.split(' ')); //'space'
 
 const [firstname, lastName] = 'Manisha prasad'.split(' ');
 
@@ -653,4 +653,24 @@ const capitalizeName = function (changeName) {
 capitalizeName('jessica ann smith davis');
 capitalizeName('jonas elis');
 
-//09.padding----
+//09.padding----(padStart()padEnd())
+const message = 'Hello Manisha';
+console.log(message.padStart(20, '+').padEnd(40, '+'));
+console.log('Lekhu'.padStart(10, '='));
+
+//09.1 e.g--
+const maskCreditCard = function (number) {
+  const str = number + ''; //numb as string
+  const last = str.slice(-4); // padding '*' except 4 last digits
+  return last.padStart(str.length, '*');
+};
+console.log(maskCreditCard(8538545));
+console.log(maskCreditCard(6486998008538545));
+console.log(maskCreditCard('5253759780342'));
+
+//10.Repeat()
+
+const message2 = 'My name is Manisha.... ';
+console.log(message2.repeat(5));
+
+//------------------------------------------------------------------
