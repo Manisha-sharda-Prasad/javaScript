@@ -1,10 +1,5 @@
 'use strict';
-//------------------------------------------------
-// Data needed for a later exercise-
-const flights =
-  '_Delayed_Departure;fao93766109;txl2133758440;11:25+_Arrival;bru0943384722;fao93766109;11:45+_Delayed_Arrival;hel7439299980;fao93766109;12:05+_Departure;fao93766109;lis2323639855;12:30';
-
-// Data needed for first part of the section
+// Data needed --
 const restaurant = {
   name: 'Classico Italiano',
   location: 'Via Angelo Tavanti 23, Firenze, Italy',
@@ -580,7 +575,7 @@ checkMiddleSeat('11 B');
 checkMiddleSeat('23 C');
 checkMiddleSeat('3 E');
 //---------------------
-//05.(lower/uppercase,trim,replace,includes,starts/endsWith,split,join,padStart/End,Repeat)----
+//05.(lower/uppercase,trim,replace,replaceAll,includes,starts/endsWith,split,join,padStart/End,Repeat)----
 console.log(airline.toLowerCase());
 console.log(airline.toUpperCase());
 
@@ -673,4 +668,22 @@ console.log(maskCreditCard('5253759780342'));
 const message2 = 'My name is Manisha.... ';
 console.log(message2.repeat(5));
 
-//------------------------------------------------------------------
+//--------------------------
+//Strings Method practice---
+// Data needed--
+const flights =
+  '_Delayed_Departure;fao93766109;txl2133758440;11:25+_Arrival;bru0943384722;fao93766109;11:45+_Delayed_Arrival;hel7439299980;fao93766109;12:05+_Departure;fao93766109;lis2323639855;12:30';
+
+//split()--
+console.log(flights.split('+'));
+
+//looping ,destructuring data, replaceAll()---
+for (const flight of flights.split('+')) {
+  const [type, from, to, time] = flight.split(';'); //split after';'
+  const output = `${type.replaceAll('_', ' ')} ${from}, ${to}, (${time.replace(
+    ':',
+    'h'
+  )})`;
+  console.log(output);
+}
+//-------------------------------------------------------------------
