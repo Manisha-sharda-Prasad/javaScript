@@ -568,16 +568,89 @@ console.log(airline.slice(-1)); //l
 console.log(airline.slice(1, -1)); // 'AP Air Portuga'
 
 //04. with function--
-
 //B and E are middle seats--
 const checkMiddleSeat = function (seat) {
   const s = seat.slice(-1);
   if (s === 'B' || s === 'E') console.log('You got middle seat!');
   else console.log('You got lucky!!');
 };
-
-// caliing method on string ' ' --
+// calling method on string ' ' --
 checkMiddleSeat('11 B');
 checkMiddleSeat('23 C');
 checkMiddleSeat('3 E');
-//-------------------------------------------------------------------
+
+//05. (lowercase,uppercase,trim,replace,includes,startsWith,endsWith,split,join)----
+console.log(airline.toLowerCase());
+console.log(airline.toUpperCase());
+
+//05.1.fix capitalisation in name--
+//e.g.--
+const passenger = 'maNisH';
+const passengerLower = passenger.toLowerCase();
+
+const passengerCorrect =
+  passengerLower[0].toUpperCase() + passengerLower.slice(1);
+
+console.log(passengerCorrect);
+
+//05.2.comparing emails--
+//e.g.--
+const email = 'manishaprasad@.io';
+const loginEmail = ' MANISHAPRASAD@.IO \n';
+// const lowerEmail = loginEmail.toLowerCase();
+// const trimmedEmail = lowerEmail.trim();
+
+//better--
+const normalizedEmail = loginEmail.toLowerCase().trim();
+console.log(normalizedEmail);
+console.log(email === normalizedEmail); //true
+
+//05.3.replacing (.replace()--
+//e.g.1--
+const priceGB = '288,97*';
+const priceUS = priceGB.replace('*', '$').replace(',', '.'); //replacing '*' with '$' and ',' with '.' /
+console.log(priceUS);
+
+//e.g.2--
+//(in a string)(/g)--
+
+const announcement =
+  'All passengers come to boarding door 23, rest stand boarding door 23.';
+console.log(announcement.replace('door', 'gate')); //working on 1 door only.
+
+console.log(announcement.replace(/door/g, 'gate')); //working on both as-g/globally.
+
+//06.Booleans(includes, startsWith, endsWith)--
+const planeNo = 'Air Bus A320neo';
+console.log(planeNo.includes('A320'));
+console.log(planeNo.includes('3509'));
+console.log(planeNo.startsWith('Air'));
+
+if (planeNo.startsWith('Air') && planeNo.endsWith('neo')) {
+  console.log('Part of new Air Bus family');
+} else 'other airline part!';
+
+//07.split() and join()--
+console.log('a+very+nice+string'.split('+'));
+console.log('Manisha Prasad'.split(' '));
+
+const [firstname, lastName] = 'Manisha prasad'.split(' ');
+
+const newName = ['Mrs.', firstname, lastName.toUpperCase()].join(' ');
+console.log(newName);
+
+//08.capitalize with function--
+
+const capitalizeName = function (changeName) {
+  const naming = changeName.split(' ');
+  const namingUpper = [];
+
+  for (const n of naming) {
+    namingUpper.push(n.replace(n[0], n[0].toUpperCase()));
+  }
+  console.log(namingUpper.join(' '));
+};
+capitalizeName('jessica ann smith davis');
+capitalizeName('jonas elis');
+
+//09.padding----
