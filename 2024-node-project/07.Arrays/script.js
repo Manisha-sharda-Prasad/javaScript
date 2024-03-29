@@ -1,74 +1,5 @@
 'use strict';
-// BANKIST APP
-
-// Data
-const account1 = {
-  owner: 'Jonas Schmedtmann',
-  movements: [200, 450, -400, 3000, -650, -130, 70, 1300],
-  interestRate: 1.2, // %
-  pin: 1111,
-};
-
-const account2 = {
-  owner: 'Jessica Davis',
-  movements: [5000, 3400, -150, -790, -3210, -1000, 8500, -30],
-  interestRate: 1.5,
-  pin: 2222,
-};
-
-const account3 = {
-  owner: 'Steven Thomas Williams',
-  movements: [200, -200, 340, -300, -20, 50, 400, -460],
-  interestRate: 0.7,
-  pin: 3333,
-};
-
-const account4 = {
-  owner: 'Sarah Smith',
-  movements: [430, 1000, 700, 50, 90],
-  interestRate: 1,
-  pin: 4444,
-};
-
-const accounts = [account1, account2, account3, account4];
-
-// Elements
-const labelWelcome = document.querySelector('.welcome');
-const labelDate = document.querySelector('.date');
-const labelBalance = document.querySelector('.balance__value');
-const labelSumIn = document.querySelector('.summary__value--in');
-const labelSumOut = document.querySelector('.summary__value--out');
-const labelSumInterest = document.querySelector('.summary__value--interest');
-const labelTimer = document.querySelector('.timer');
-
-const containerApp = document.querySelector('.app');
-const containerMovements = document.querySelector('.movements');
-
-const btnLogin = document.querySelector('.login__btn');
-const btnTransfer = document.querySelector('.form__btn--transfer');
-const btnLoan = document.querySelector('.form__btn--loan');
-const btnClose = document.querySelector('.form__btn--close');
-const btnSort = document.querySelector('.btn--sort');
-
-const inputLoginUsername = document.querySelector('.login__input--user');
-const inputLoginPin = document.querySelector('.login__input--pin');
-const inputTransferTo = document.querySelector('.form__input--to');
-const inputTransferAmount = document.querySelector('.form__input--amount');
-const inputLoanAmount = document.querySelector('.form__input--loan-amount');
-const inputCloseUsername = document.querySelector('.form__input--user');
-const inputClosePin = document.querySelector('.form__input--pin');
-
-// LECTURES
-const currencies = new Map([
-  ['USD', 'United States dollar'],
-  ['EUR', 'Euro'],
-  ['GBP', 'Pound sterling'],
-]);
-
-const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
-////////////////////////////////////////////////////////////////
-//--------------------------------------------------------------
-
+//-----------------
 //Simple Array methods(slice, splice, reverse, concat, join)---
 
 let arr = ['a', 'b', 'c', 'd', 'e'];
@@ -107,13 +38,18 @@ console.log(conArr);
 console.log([...arr1, ...arr2]); // same result-(conArr)
 
 //05.Join---
-console.log(conArr.join('='));
+//console.log(conArr.join('='));
 
-//06. At---
+const array = ['Hello', 'world', '!'];
+const joinedString = array.join(' ');
+
+console.log(joinedString); // Output: "Hello world !"
+
+//06. At()---
 
 const where = [23, 11, 64];
 //06.1.getting last array element -->
-console.log(where.at(0));
+console.log(where.at(0)); // where[0]
 console.log(where[where.length - 2]);
 console.log(where.slice(-1)[0]); //.slice(-1,0)--not getting result
 console.log(where.at(-1)); //better
@@ -121,4 +57,140 @@ console.log(where.at(-1)); //better
 //06.2.with strings--
 console.log('jonas'.at(0));
 console.log('Manisha'.at(-1));
+
 //-----------------------------------------------------------------------
+//Looping Arrays: for Each---->(iteration)
+
+const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
+
+//.abs()-absolute /removing sign--
+//01. using- for (of)---
+console.log('------for-Of------');
+for (const movement of movements) {
+  if (movement > 0) {
+    console.log(`You deposited ${movement}`);
+  } else {
+    console.log(`You withdrew ${Math.abs(movement)}`);
+  }
+}
+
+//other way---
+//02.-using- forEach()---
+console.log('------for-Each------');
+
+movements.forEach(function (movement) {
+  if (movement > 0) {
+    console.log(`You deposited ${movement}`);
+  } else {
+    console.log(`You withdrew ${Math.abs(movement)}`);
+  }
+});
+//iteration(assigning in -movement)---
+//function(200)
+//function(450)
+
+//---------------------------------------------------------------------
+// forEach with Maps and Sets--->
+
+//01.Maps---
+console.log('----MAPS----');
+const currencies = new Map([
+  ['USD', 'United States dollar'],
+  ['EUR', 'Euro'],
+  ['GBP', 'Pound sterling'],
+]);
+
+currencies.forEach(function (value, key, map) {
+  //(value, key, Map)=(currentElement, index , array).
+  console.log(`${key} : ${value}`);
+  //map.get(key);
+});
+//-----
+//01.1.Creating a Map
+let myMap = new Map();
+myMap.set(1, 'Apple');
+myMap.set(2, 'Banana');
+myMap.set(3, 'Orange');
+
+// Using forEach() with Map
+myMap.forEach((value, key) => {
+  console.log(`Key: ${key}, Value: ${value}`);
+});
+
+//-------------------------
+//02.Sets---
+console.log('----SETS----');
+const currenciesNew = new Set([['USD', 'EUR', 'USD', 'GBP', 'EUR']]);
+
+currenciesNew.forEach(function (value, map) {
+  console.log(`${value} : ${map}`);
+});
+//------
+//02.1. Creating a Set
+let mySet = new Set();
+mySet.add('Apple');
+mySet.add('Banana');
+mySet.add('Orange');
+
+// Using forEach() with Set
+mySet.forEach(value => {
+  console.log(`Value: ${value}`);
+});
+
+//-------------------------------------------------------------------------
+//The Map Method----->
+//map() creates new array- includes results of calling provided fn.
+
+//01. e.g
+const currency = [200, 450, -400, 3000, -650, -130, 70, 1300];
+const eurToUsd = 1.1;
+
+const currencyUSD = currency.map(function (curr) {
+  return curr * eurToUsd;
+});
+console.log(currency);
+console.log(currencyUSD);
+
+//02.e.g
+const numbers = [1, 2, 3, 4, 5];
+
+const doubledNumbers = numbers.map(function (num) {
+  return num * 2;
+});
+
+console.log(doubledNumbers); // Output: [2, 4, 6, 8, 10]
+
+//03.e.g.
+
+const numb = [12, 13, 14, 15, 16];
+
+const newNumb = numb.map(function (x) {
+  return x * 2;
+});
+console.log(newNumb);
+
+//-------------------------------------------------------------------------
+//The Filter Method----->
+//filter()creates new array with all elements that pass the test implemented by the provided fn.
+
+const n = [1, 2, 3, 4, 5];
+
+const evenN = n.filter(function (num) {
+  return num % 2 === 0;
+});
+
+console.log(evenN); // Output: [2, 4]
+
+//-------------------------------------------------------------------------
+// The Reduce Method----->
+// executes a reducer function on each element of the array, resulting in a single output value.
+
+const nu = [1, 2, 3, 4, 5];
+
+const sum = nu.reduce(function (acc, current) {
+  return acc + current;
+}, 0);
+
+console.log(sum); // Output: 15
+
+//-------------------------------------------------------------------------------
