@@ -270,3 +270,28 @@ const averageScore =
 console.log(averageScore); // Output: 79.16666666666667 (approximately)
 
 //---------------------------------------------------
+//The Find Method--->
+//return value of first element(result-not in array) in an array that satisfies testing fn. It searches the array from left to right and returns the first match found, or undefined if no match found.
+
+//01.e.g---
+const numeric = [1, 2, 3, 4, 5];
+
+const found = numeric.find(num => num > 3);
+
+console.log(found); // Output: 4
+
+//02.e.g.--
+
+//const evenOdd = [4, 3, 6, 9, 10];
+const evenOdd = [5, 3, 6, 9, 10];
+
+const findeven = evenOdd.find(even => even % 2 === 0);
+console.log(findeven); //4/ 6/
+
+//-----------------------------------------------
+//The findIndex() method ---->
+//returns index of the first element in array , If no such element is found, it returns -1.
+
+const arrayNum = [10, 20, 30, 40, 50];
+const index = arrayNum.findIndex(num => num > 30);
+console.log(index); // Output: 3 index
