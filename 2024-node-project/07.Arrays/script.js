@@ -295,3 +295,38 @@ console.log(findeven); //4/ 6/
 const arrayNum = [10, 20, 30, 40, 50];
 const index = arrayNum.findIndex(num => num > 30);
 console.log(index); // Output: 3 index
+
+//----------------------------------------------------
+//Some() Method--->(works like or ||)
+//tests whether at least 1 element in array passes the test, implemented by fn. It returns true if at least 1 satisfies the condition; otherwise,returns false.
+//stops iteration once it finds 1st matching element.
+
+//01.e.g---
+const givenNum = [1, 2, 3, 4, 5];
+
+const hasEven = givenNum.some(num => num % 2 === 0);
+console.log(hasEven); // : true (since there is at least 1 even number)
+
+//02.e.g---
+//if the current element (num) is divisible by 3 with no remainder. If condition true for at least 1 element, hasOdd will be set to true; otherwise,false.
+// const givenNum2 = [3, 2, 6, 4, 9];
+
+// const hasOdd = givenNum2.some(num => num % 3 === 0);
+// console.log(hasOdd);
+
+//------------------------------------------------------
+//Every() method ----> (works like &&)
+//tests whether all elements in array pass the test implemented by fn. returns true if all elements satisfy the condition; otherwise, false.
+
+//01.e.g---
+const givenNum2 = [3, 2, 6, 4, 9];
+
+const hasOdd = givenNum2.every(num => num % 3 === 0);
+console.log(hasOdd); // false --not all passed test
+
+//02.e.g---
+const studentScores = [50, 60, 80, 65, 75, 90];
+
+const checkPassed = studentScores.every(score => score >= 50);
+console.log(checkPassed); //true- everyone passed
+//----------------------------------------------------------
