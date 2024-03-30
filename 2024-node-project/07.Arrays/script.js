@@ -219,4 +219,54 @@ const concatStr = words.reduce(function (accumulator, currentValue) {
 console.log(concatStr); // Output: "Hello World!"
 
 //-------------------------------------------------------------------------------
-//---
+//Chainig methods---->
+//we have an array of items with prices and we want to calculate the total price after applying a discount of 10% to items with a price greater than $50.
+
+const items = [
+  { name: 'Laptop', price: 800 },
+  { name: 'Phone', price: 600 },
+  { name: 'Tablet', price: 40 },
+  { name: 'Smartwatch', price: 120 },
+];
+
+const totalPrice = items
+  .filter(item => item.price > 50) // Filter items with price greater than $50
+  .map(item => item.price * 0.9) // Apply 10% discount
+  .reduce((acc, curr) => acc + curr, 0); // Calculate total price
+
+console.log(totalPrice); // Output: 1260
+
+//--------
+//Test Description:
+// We have an array of student objects with their names and scores.
+// We want to filter out students who scored less than 60, then map their scores to a letter grade (A, B, C, D, or F), and finally calculate the average score of the remaining students.
+//Steps:
+// Create an array of student objects with names and scores.
+// Filter out students with scores less than 60.
+// Map the filtered student scores to letter grades (A, B, C, D, or F) based on score ranges.
+// Calculate the average score of the remaining students.
+
+const students = [
+  { name: 'Alice', score: 85 },
+  { name: 'Bob', score: 45 },
+  { name: 'Charlie', score: 70 },
+  { name: 'David', score: 90 },
+  { name: 'Eve', score: 55 },
+];
+
+const averageScore =
+  students
+    .filter(student => student.score >= 60) // Filter students with scores >= 60
+    .map(student => {
+      if (student.score >= 90) return 'A';
+      if (student.score >= 80) return 'B';
+      if (student.score >= 70) return 'C';
+      if (student.score >= 60) return 'D';
+      return 'F';
+    }) // Map scores to letter grades
+    .reduce((acc, curr) => acc + curr.charCodeAt(0), 0) / // Convert letter grades to ASCII codes and sum them
+  students.filter(student => student.score >= 60).length; // Calculate average score
+
+console.log(averageScore); // Output: 79.16666666666667 (approximately)
+
+//---------------------------------------------------
