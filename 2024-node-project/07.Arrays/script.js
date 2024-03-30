@@ -173,6 +173,7 @@ console.log(newNumb);
 //The Filter Method----->
 //filter()creates new array with all elements that pass the test implemented by the provided fn.
 
+//01.e.g--
 const n = [1, 2, 3, 4, 5];
 
 const evenN = n.filter(function (num) {
@@ -181,10 +182,25 @@ const evenN = n.filter(function (num) {
 
 console.log(evenN); // Output: [2, 4]
 
+//e.g--
+const products = [
+  { name: 'Apple', price: 1 },
+  { name: 'Banana', price: 2 },
+  { name: 'Orange', price: 3 },
+  { name: 'Grapes', price: 4 },
+];
+
+const expensiveProducts = products.filter(function (product) {
+  return product.price > 2;
+});
+
+console.log(expensiveProducts); //{ 'Orange', price: 3 },{ 'Grapes', price: 4 } ]
+
 //-------------------------------------------------------------------------
 // The Reduce Method----->
 // executes a reducer function on each element of the array, resulting in a single output value.
-
+//accumulator parameter holds the accumulated value or result of previous iteration.
+//01.e.g--
 const nu = [1, 2, 3, 4, 5];
 
 const sum = nu.reduce(function (acc, current) {
@@ -192,5 +208,14 @@ const sum = nu.reduce(function (acc, current) {
 }, 0);
 
 console.log(sum); // Output: 15
+
+//02.e.g--
+const words = ['Hello', ' ', 'World', '!'];
+
+const concatStr = words.reduce(function (accumulator, currentValue) {
+  return accumulator + currentValue;
+}, '');
+
+console.log(concatStr); // Output: "Hello World!"
 
 //-------------------------------------------------------------------------------
