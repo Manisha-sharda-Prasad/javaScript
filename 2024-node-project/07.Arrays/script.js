@@ -374,9 +374,12 @@ console.log(filterFlatMap); //[2,6,8,10]
 //in ascending, we subtract b from a ; in descending, we subtract a from b.
 
 //01.sorting ascending----
-const unSorted = [5, 8, 6, 9, 7, 10];
+const unSorted = [5, 8, 6, 9, 9, 10];
 
-unSorted.sort((a, b) => a - b);
+unSorted.sort((a, b) => a - b); // cb - it will return a  number :
+// 0 -> a is equal to b
+// greater than 0 (+) -> a is bigger than b,
+// less than 0 (-)  -> a is smaller than b
 console.log(unSorted);
 
 //01.1.sorting descending-
@@ -391,7 +394,6 @@ names.sort();
 console.log(names);
 
 //02.1.sorting string descending and (localeCompare(only strings))-
-
 names.sort((a, b) => b.localeCompare(a));
 console.log(names);
 
@@ -403,12 +405,35 @@ const furniture = [
   { name: 'sofa', price: 1000 },
 ];
 
-furniture.sort((x, y) => x.price - y.price);
-console.log(furniture);
-
-//03.1 sort {} descending-
-
+// ==== Price =====
+// 3.1. Sort by furniture Price DESC
 furniture.sort((x, y) => y.price - x.price);
-console.log(furniture);
+console.log('Sort by furniture Price DESC : ', furniture);
+
+// 3.2. Sort by furniture Price ASC
+furniture.sort((x, y) => x.price - y.price);
+console.log('Sort by furniture Price ASC : ', furniture);
+
+// ==== Name ====
+// 3.3. Sort by furniture Name DESC
+furniture.sort((x, y) => y.name.localeCompare(x.name));
+console.log('Sort by furniture name DESC : ', furniture);
+
+// 3.4 Sort by furniture Name ASC
+furniture.sort((x, y) => x.name.localeCompare(y.name));
+console.log('Sort by furniture name ASC : ', furniture);
 
 //-----------------------------------------------------------
+// Chaining - Array methods/Operator
+// source - Array
+// Source - Observable.subscribe =YouTubeChannel.subscribe /  RxJx
+const Observable = [
+  [1, 2],
+  [3, 4],
+  [5, 6],
+];
+const result = Observable.flatMap(x => x) // [1,2,3,4,5,6] - join sub-arr
+  .map(x => x * 10) // [10,20,...] - transform
+  .filter(x => x > 20) // [30, 40, 50, 60]
+  .reduce((acc, x) => acc + x, 0);
+console.log('result : ', result); // 180
