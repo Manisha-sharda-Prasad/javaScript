@@ -341,7 +341,7 @@ console.log(concatArr); //[1,2,3.....11]
 
 //-----------------------------------------------------------
 //flatMap method---->
-//
+//maps each element using a mapping fn, then flattens result into new array, combines steps of mapping & flattening into a single method call.
 //01.e.g flattening and mappping array of arrays---
 const arrays = [
   [1, 2],
@@ -368,4 +368,47 @@ const filterFlatMap = group.flatMap(array =>
 
 console.log(filterFlatMap); //[2,6,8,10]
 
-//------------------------------------------------
+//---------------------------------------------------------
+//Sort() Method---->
+//sorts elements of array in place and returns the sorted array,sorts the array elements as strings.
+//in ascending, we subtract b from a ; in descending, we subtract a from b.
+
+//01.sorting ascending----
+const unSorted = [5, 8, 6, 9, 7, 10];
+
+unSorted.sort((a, b) => a - b);
+console.log(unSorted);
+
+//01.1.sorting descending-
+
+unSorted.sort((a, b) => b - a);
+console.log(unSorted);
+
+//02. sorting strings----
+const names = ['Kevin', 'Arush', 'Divya', 'Lekh', 'Barbie'];
+
+names.sort();
+console.log(names);
+
+//02.1.sorting string descending and (localeCompare(only strings))-
+
+names.sort((a, b) => b.localeCompare(a));
+console.log(names);
+
+//03. sort array of Objects{}----
+
+const furniture = [
+  { name: 'chairs', price: 400 },
+  { name: 'table', price: 200 },
+  { name: 'sofa', price: 1000 },
+];
+
+furniture.sort((x, y) => x.price - y.price);
+console.log(furniture);
+
+//03.1 sort {} descending-
+
+furniture.sort((x, y) => y.price - x.price);
+console.log(furniture);
+
+//-----------------------------------------------------------
