@@ -329,4 +329,43 @@ const studentScores = [50, 60, 80, 65, 75, 90];
 
 const checkPassed = studentScores.every(score => score >= 50);
 console.log(checkPassed); //true- everyone passed
+
 //----------------------------------------------------------
+//flat() method----->
+//creates a new array with all sub-array elements concatenated into it.
+
+const depthArr = [1, 2, [3, 4, 5, 6, 7], [8, [9, 10, 11]]];
+
+const concatArr = depthArr.flat();
+console.log(concatArr); //[1,2,3.....11]
+
+//-----------------------------------------------------------
+//flatMap method---->
+//
+//01.e.g flattening and mappping array of arrays---
+const arrays = [
+  [1, 2],
+  [3, 4],
+  [5, 6],
+];
+
+const flattenedAndMapped = arrays.flatMap(array => array.map(num => num * 2));
+
+console.log(flattenedAndMapped); // Output: [2, 4, 6, 8, 10, 12]
+
+//02.e.g---
+
+const group = [
+  [1, 2],
+  [3, 6],
+  [7, 8],
+  [9, 10],
+];
+
+const filterFlatMap = group.flatMap(array =>
+  array.filter(numb => numb % 2 === 0)
+);
+
+console.log(filterFlatMap); //[2,6,8,10]
+
+//------------------------------------------------
