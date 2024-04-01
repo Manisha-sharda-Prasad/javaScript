@@ -47,66 +47,47 @@ const restaurant = {
 };
 
 //--------------------------------------------------
-
 //Destructuring Array--->
-
 //unpacking array from an object into separate variables/ break complex data structure into small like a variable --
 
-//01.Retrieve elements from array / storing into variable a,b..--
+//01.Retrieve elements from array (storing into variable a,b..)--
 const arr = [2, 3, 4];
-
-const a = arr[0];
-const b = arr[0];
-const c = arr[0];
-
-//02.Better way- destructuring array[var,,,]--
 const [x, y, z] = arr;
 console.log(x, y, z);
 
-//03.unpacking restaraunt categories--
-// const [first, , second] = restaurant.categories;
-// console.log(first, second);
-
-let [main, , secondary] = restaurant.categories;
+//02.unpacking restaraunt categories and skipping element(, ,)--
+let [main, , secondary] = restaurant.categories; //skipped['Pizzeria']
 console.log(main, secondary);
 
-//04.switching variables for -array values from first to secondary--
-//bad practice--
-// const temp = main;
-// main = secondary;
-// secondary = temp;
-// console.log(main, secondary);
-
-//good practice--
+//03.swapping variables (from first to secondary)--
 [main, secondary] = [secondary, main];
 console.log(main, secondary);
 
-//05- calling & destructuring order(method) in object {restaraunt}--
+//04- calling & destructuring (order(method) in object {restaraunt})--
 console.log(restaurant.order(2, 0));
 
-//05.1 receive 2 return values from a function--
+//04.1 receive 2 return values from a fn--
 const [starterCourse, mainCourse] = restaurant.order(2, 0);
 console.log(starterCourse, mainCourse);
 
-//06. Nested destructuring -values of arrays--
+//05. Nested array destructuring--
 
 const nested = [2, 4, [5, 6]];
 // const [i, , j] = nested;   // bad
 const [i, , [j, k]] = nested; //good
 console.log(i, j, k);
 
-//07.Default values--
+//06.Default values--
 //const [p, q, r] = [8, 9]; // undefined after 9..
 const [p = 1, q = 1, r = 1, s = 1] = [8, 9];
 console.log(p, q, r, s);
 
 //---------------------------------------------------------------------------
-
 //Destructuring Object--->
 const { name, openingHours, categories } = restaurant;
 console.log(name, openingHours, categories);
 
-//01.assigning new property names of object{} into new var names--
+//01.assigning new property names (of object{} into new var names)--
 const {
   name: restarauntName,
   openingHours: hours,
@@ -114,37 +95,48 @@ const {
 } = restaurant;
 console.log(restarauntName, hours, tags);
 
-//02.Default values(trying to read a property of object -but if it exists or not)--
+//02.Default values--
+//(trying to read a property of object -but if it exists or not)--
 
 //const { menu, starterMenu: starters = [] } = restaurant;   // undefined- menu
 const { menu = [], starterMenu: starters = [] } = restaurant; // added default-menu-[]
 console.log(menu, starters); //empty[]array -menu
 
 //03.Mutating Variables--
-
 let e = 111;
 let f = 999;
 const obj = { e: 23, f: 7, g: 14 };
 //{e, f} = obj; // = expects a code block
 ({ e, f } = obj); // wrap in ()
-console.log(e, f);
+console.log(e, f); //23,7
 
-//04.Nested Objects fri has own obj{open, close}--
-
-//also assigning fri properties in a new var {openTime,closeTime}--
+//04.Nested Objects--
+//(fri has own obj{open, close})--also assigning fri properties in a new var {openTime,closeTime}--
 const {
   fri: { open: openTime, close: closeTime },
 } = openingHours;
 //console.log(open, close);
 console.log(openTime, closeTime);
 
-//05.calling a method in restaurant{}object--and adding an object of-options{} in method- --
+//05.calling a method--
+//(in restaurant{}object--and adding an object of-options{} in method-)---
 restaurant.orderDelivery({
   time: '22:30',
   address: ' 40, Orange Blossom, Irvine',
   mainIndex: 2,
   starterIndex: 2,
 });
+//0.6 other e.g.--
+const person = {
+  firstName: 'John',
+  lastN: 'Doe',
+  age: 30,
+};
+const { firstName, lastN, age } = person;
+console.log(firstName); // Output: John
+console.log(lastN); // Output: Doe
+console.log(age); // Output: 30
+
 //------------------------------------------------------------------------------
 //Spread Operators---->
 //(expand & unpack an array-into all its elements individually/ but doesn't assign new elements into new var)--
@@ -152,12 +144,11 @@ restaurant.orderDelivery({
 
 //01.1. bad practice-
 const arr1 = [7, 8, 9];
-const badArr = [1, 2, arr1[0], arr1[1], arr1[2]];
-console.log(badArr);
+// const badArr = [1, 2, arr1[0], arr1[1], arr1[2]];
 
 //01.02. good practice-
 const goodArr = [1, 2, ...arr1];
-console.log(goodArr);
+//console.log(goodArr);
 
 //also --
 console.log(...goodArr);
@@ -169,7 +160,7 @@ console.log(newMenu);
 //02.2.Copy array--
 const mainMenuCopy = [...restaurant.mainMenu]; //similar to-> object.assign /preserve a copy.
 
-//02.3.Join 2 arrays--
+//02.3.concat 2 arrays--
 //const menuNew = [restaurant.mainMenu + restaurant.starterMenu];
 const menuNew = [...restaurant.mainMenu, ...restaurant.starterMenu];
 console.log(menuNew);
@@ -204,11 +195,11 @@ const restarauntCopy = { ...restaurant };
 restarauntCopy.name = 'Ristorante Roma';
 console.log(restarauntCopy.name);
 console.log(restaurant.name);
-//--------------------------------------------------------------------
 
+//--------------------------------------------------------------------
 // Rest Patterns and Parameters--->
-//(compresss)pack (rest) all the elements into an array/opposite of spread(unpack)--
-//(Rest, left[...rest only last] = side of assign operator.
+//(compresss)pack (rest) all elements into array/opposite of spread(unpack)--
+//(Rest_left[...rest only last] = side of assign operator.
 
 //01.Spread eg [packed-1-4 in one [array]]:-
 const anArr = [1, 2, ...[3, 4]];
@@ -246,11 +237,11 @@ restaurant.orderPizza('mushrooms', 'onions', 'tomatoes', 'cheese');
 
 //-----------------------------------------------------------------------
 //Short Circuiting (&& and ||)--->
-//logical operators- can use and return any Data type, short-circuiting--
+//(logical operators- can use and return any Data type, short-circuiting)--
 
 console.log('------OR------');
 
-//01.|| operator if the first value is truthy it will return first truthy--
+//01.||operator -(if the first value is truthy it will return first truthy)---
 //(both truthy first value(3) returned- so jony not evaluated)
 console.log(3 || 'jony');
 console.log('' || 23);
@@ -258,18 +249,18 @@ console.log(true || 0);
 console.log(undefined || null);
 console.log('hello' || 23 || ' ' || null || 3 || 'hy'); // printed 1st only ,others not evaluated
 
-//02.
+//02.---
 //restaurant.numOfGuests = 23;
 const guests1 = restaurant.numOfGuests ? restaurant.numOfGuests : 10;
 console.log(guests1); // if numOfGuest exists? else set to : 10;
 
-//02.1
+//02.1---
 //falsy value(undefined) || 10 -> (skipped 1st falsy) result 10(truthy).
 const guests2 = restaurant.numOfGuests || 10;
 console.log(guests2);
 
 console.log('-----AND------');
-//03 && operator if any value is falsyy it will only return falsy--
+//03 && operator (if any value is falsyy it will only return falsy)---
 console.log(0 && 'jony');
 console.log('jony' && null);
 console.log(23 && false);
@@ -277,7 +268,31 @@ console.log('hello' && 13); // both truthy 13 -last value returned
 console.log('hello' && 23 && ' ' && null && 3); // null -one is false
 
 //-----------------------------------------------------------------------
-//Nullish Coalescing operators(??)-->
+//Nullish Coalescing operators(??)---> (null or undefined)
+// provide default value for nullable,
+//returns right-hand when the left-hand operand is either null or undefined. Otherwise,returns left-hand.
+
+// Syntax: leftOperand ?? rightOperand
+//01.e-g.----
+// Example 1
+let v = null;
+let u = 5;
+let result = v ?? u; // Since x is null, it returns the value of y
+console.log(result); // Output: 5
+
+// Example 2
+let a = undefined;
+let b = 10;
+let result2 = a ?? b;
+console.log(result2); // Output: 10
+
+// Example 3
+let c = 0;
+let d = 20;
+let result3 = c ?? d;
+console.log(result3); // Output: 0
+
+//02.e-g.----
 restaurant.numOfGuest = 0;
 
 const guests3 = restaurant.numOfGuest || 10; // 10 is true, (skipped 0)result- 10
@@ -329,6 +344,7 @@ console.log(rest2);
 
 //---------------------------------------------------------------------------------
 //Looping Arrays: The For-of-Loop--->
+//used to iterate over iterable objects,arrays, strings, maps, sets. provides concise syntax for iterating over elements of array without manually managing index.
 
 //01.spreading 2 prop in 1 array[]
 const menu1 = [...restaurant.starterMenu, ...restaurant.mainMenu];
@@ -336,10 +352,9 @@ const menu1 = [...restaurant.starterMenu, ...restaurant.mainMenu];
 //01.1.using of(1st current element)--
 for (const item of menu1) console.log(item);
 
-//01.2.using .entries(name+value) (in-built method)--
+//01.2.using .entries(name+value)--
 //also detructuring (index, elements / i,el)--
 for (const [i, el] of menu1.entries()) {
-  //console.log(item);
   console.log(`${i + 1}: ${el}`);
 }
 //arrays elements & index--
@@ -347,7 +362,7 @@ for (const [i, el] of menu1.entries()) {
 
 //--------------------------------------------------------------------------
 // Optional Chaining (?)--->
-
+//accessing properties/calling methods of nested objects, without the need for numerous null or undefined checks. useful when dealing with complex data where some properties might be missing/undefined.
 //0.1.checking if property (mon)exists or not---
 //if (restaurant.openingHours.mon) console.log(restaurant.openingHours.mon.open);
 
@@ -404,26 +419,28 @@ for (const x of entry) {
   console.log(x);
 }
 //--------------------------------------------------------------------------
-//Sets--->(.size, has(), add(), delete(), clear())
-//no index eg[1]--> undefined always/ cannot get data out of set/ remove duplicate values in [array]
+//Sets--->(.size, has(), add(), delete(), clear())--
+//Set is a collection of unique values, each value may only occur once within the set.
+//Sets provide methods for manipulating and querying elements they contain.
+//cannot get data out of set/ remove duplicate values in [array].
 
 const ordersSet = new Set(['Pasta', 'Pasta', 'pizza', 'pizza', 'Risotto']);
 console.log(ordersSet);
 
-//01.size--
+//01.size--(returns the number of elements in a Set.)
 console.log(ordersSet.size);
-//02.has()--
+//02.has()--(true if value is present,else false.)
 console.log(ordersSet.has('Pizza'));
 console.log(ordersSet.has('Bread'));
 
-//03.add()--
+//03.add()-- (adds new element in Set. If value already exists, won't be added again.)
 ordersSet.add('Garlic Bread');
 ordersSet.add('Garlic Bread');
 
-//04.delete()--
+//04.delete()--(removes specified value from Set. If value exists,returns true/false.)
 ordersSet.delete('Risotto');
 
-//05.clear()--
+//05.clear()--(removes all elements from Set)
 //ordersSet.clear();
 
 console.log(ordersSet);
@@ -437,7 +454,7 @@ console.log(staff);
 
 //const uniqueStaff = new Set(staff);
 
-//06.2.unpacking new set using ...spread---
+//06.2.unpacking new set using (...spread---)
 const uniqueStaff = [...new Set(staff)]; // all with ...spread
 console.log(uniqueStaff);
 console.log(
@@ -575,7 +592,7 @@ checkMiddleSeat('11 B');
 checkMiddleSeat('23 C');
 checkMiddleSeat('3 E');
 //---------------------
-//05.(lower/uppercase,trim,replace,replaceAll,includes,starts/endsWith,split,join,padStart/End,Repeat)----
+//05.(lowercase/uppercase,trim,replace,replaceAll,includes,starts/endsWith,split,join,padStart/End,Repeat)----
 console.log(airline.toLowerCase());
 console.log(airline.toUpperCase());
 
