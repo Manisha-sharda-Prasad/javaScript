@@ -20,7 +20,7 @@ const createBooking = function (flightNum, numPassengers, price) {
 createBooking('LH123');
 createBooking('LH123', undefined, 199);
 createBooking('LH123', 2, 199);
-//---------------
+//-----------
 //02.e.g.-2 functions (checkIn,newPassport) manipulationg same object {jonas}---
 const flight = 'LH242';
 const jonas = {
@@ -41,21 +41,14 @@ const checkIn = function (flightNumber, passenger) {
   }
 };
 
-// checkIn(flight, jonas);
 // console.log(flight);
-// console.log(jonas);
-
-//02.2--bad practice-manipulating again (-jonas/person)--
-// const newPassport = function (person) {
-//   person.passport = Math.trunc(Math.random() * 10000);
-// };
-
 // newPassport(jonas);
 checkIn(flight, jonas);
 
 //--------------------------------------------------------------------
 //Function accepting callback Functions--->
-//callback fn advantage -splitup coad into reusable,interconnected parts-
+//Callback fn advantage -splitup coad into reusable,interconnected parts.
+//Allows for flexible and asynchronous programming patterns.
 
 //01. Lower-level functions--
 const oneWord = function (str) {
@@ -79,7 +72,7 @@ transformer('JavaScript is the best!', upperFirstWord);
 transformer('JavaScript is the best!', oneWord);
 
 //--------------------------------------------------------------------
-//Functions returninmg functions-->
+//Functions returning functions-->
 
 //01. returning fn with regular fn.---
 const greet = function (greeting) {
@@ -100,9 +93,23 @@ const greetArr = greeting => name => console.log(`${greeting} ${name}`);
 greetArr('Hii')('Jonas');
 
 console.dir(greeterHey);
+
+//03.e.g-------
+function createMultiplyer(x) {
+  return function (y) {
+    return x * y;
+  };
+}
+
+const multiplyFive = createMultiplyer(5);
+console.log(multiplyFive(10)); //50
+console.log(multiplyFive(20)); //100
 //-------------------------------------------------------------------------
 //The Call and Apply methods---->
-//call()allows you to call fn with a given this value and arguments provided individually.
+
+//Both call(), apply() allow you to control the value of this inside fn when it's being invoked, and they differ only in how they accept arguments:
+//call() accepts arguments as a comma-separated list,
+//apply() accepts them as an array.
 
 const lufthansa = {
   airline: 'Lufthansa',
@@ -117,7 +124,7 @@ const lufthansa = {
   },
 };
 
-//01.calling method in object lufthansa---
+//01.calling method in object --
 lufthansa.book(239, 'Jonas'); //this -  lufthansa
 lufthansa.book(445, 'Johny');
 //bookAgain.call(eurowings, 23, 'Sarah'); //this -  eurowings
@@ -129,11 +136,11 @@ const eurowings = {
   iataCode: 'EW',
   bookings: [],
 };
-const bookAgain = lufthansa.book;
+const bookAgain = lufthansa.book; //book(flightNum, name)
 
 //book(23, 'Sarah'); //bad, won't work
 
-//02.1.using call()-- //better--
+//02.1.//better--
 
 //bookAgain(230, 'lekhraj'); //'this'  is undefined . hence error.
 bookAgain.call(eurowings, 23, 'Sarah');
@@ -167,23 +174,20 @@ console.log(person.fullName.call(person2, 'London', 'UK'));
 //----------------------------------------------------------------
 //Apply Method()--->
 //The apply method is similar to call, but it accepts arguments as an array.
-
+//01.-----
 const detail = {
   fullName: function (city, country) {
     return this.firstName + ' ' + this.lastName + ', ' + city + ', ' + country;
   },
 };
-
 const detail1 = {
   firstName: 'Arush',
   lastName: 'Gautam',
 };
-
 const detail2 = {
   firstName: 'Vageesh',
   lastName: 'Kumar',
 };
-
 // Using apply to invoke the fn and pass the object as this, and arguments as an array
 console.log(detail.fullName.apply(detail1, ['New York', 'USA']));
 console.log(detail.fullName.apply(detail2, ['London', 'UK']));
@@ -192,11 +196,11 @@ console.log(detail.fullName.apply(detail2, ['London', 'UK']));
 //Bind method()--->
 //bind creates a new fn with same body and scope as the original function, but with a predefined this value.
 
-//01.not calling fn, return a new fn which is set to (eurowings)--
+//01.not calling fn, return a new fn which is set to (eurow/luft)--
 const bookEW = bookAgain.bind(eurowings);
 const bookLH = bookAgain.bind(lufthansa);
 
-bookEW(100, 'Steven'); //no need for this/call()/already set to
+bookEW(100, 'Steven'); //no need for this/call()/already set
 bookLH(30, 'Kelly');
 
 //02.with Event Listeners--

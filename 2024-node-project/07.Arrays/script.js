@@ -219,9 +219,9 @@ const concatStr = words.reduce(function (accumulator, currentValue) {
 console.log(concatStr); // Output: "Hello World!"
 
 //-------------------------------------------------------------------------------
-//Chainig methods---->
+//Chainig methods---->methods/Operator
 //we have an array of items with prices and we want to calculate the total price after applying a discount of 10% to items with a price greater than $50.
-
+//01.----
 const items = [
   { name: 'Laptop', price: 800 },
   { name: 'Phone', price: 600 },
@@ -236,7 +236,21 @@ const totalPrice = items
 
 console.log(totalPrice); // Output: 1260
 
-//--------
+//02.---
+// source - Array
+// Source - Observable.subscribe =YouTubeChannel.subscribe /  RxJx
+const Observable = [
+  [1, 2],
+  [3, 4],
+  [5, 6],
+];
+const result = Observable.flatMap(x => x) // [1,2,3,4,5,6] - join sub-arr
+  .map(x => x * 10) // [10,20,...] - transform
+  .filter(x => x > 20) // [30, 40, 50, 60]
+  .reduce((acc, x) => acc + x, 0);
+console.log('result : ', result); // 180
+
+//03.-------
 //Test Description:
 // We have an array of student objects with their names and scores.
 // We want to filter out students who scored less than 60, then map their scores to a letter grade (A, B, C, D, or F), and finally calculate the average score of the remaining students.
@@ -424,16 +438,3 @@ furniture.sort((x, y) => x.name.localeCompare(y.name));
 console.log('Sort by furniture name ASC : ', furniture);
 
 //-----------------------------------------------------------
-// Chaining - Array methods/Operator
-// source - Array
-// Source - Observable.subscribe =YouTubeChannel.subscribe /  RxJx
-const Observable = [
-  [1, 2],
-  [3, 4],
-  [5, 6],
-];
-const result = Observable.flatMap(x => x) // [1,2,3,4,5,6] - join sub-arr
-  .map(x => x * 10) // [10,20,...] - transform
-  .filter(x => x > 20) // [30, 40, 50, 60]
-  .reduce((acc, x) => acc + x, 0);
-console.log('result : ', result); // 180
