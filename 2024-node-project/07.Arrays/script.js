@@ -438,3 +438,16 @@ furniture.sort((x, y) => x.name.localeCompare(y.name));
 console.log('Sort by furniture name ASC : ', furniture);
 
 //-----------------------------------------------------------
+//Fill Method()---->
+// fill all elements of array with static value. It mutates original arrzy, returns a reference to the modified array.
+
+const num = [1, 4, 6, 3, 7];
+
+//0 from index 2 to index 4
+num.fill(0, 2, 4);
+console.log(num); //[1,4,0,3,7]
+
+num.fill(-1);
+console.log(num); // [-1,...-1]
+
+//-----------------------------------------------------------------
