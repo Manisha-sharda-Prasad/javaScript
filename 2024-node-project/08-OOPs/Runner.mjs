@@ -1,6 +1,6 @@
-import { Animal } from './Animal';
-import { Dog } from './Dog';
-import { Cat } from './Cat';
+import { Animal } from './Animal.mjs';
+import { Dog } from './Dog.mjs';
+import { Cat } from './Cat.mjs';
 
 //  ---- import classes from other file (preffered) ----
 

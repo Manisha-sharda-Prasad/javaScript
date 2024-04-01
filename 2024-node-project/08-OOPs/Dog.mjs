@@ -1,4 +1,4 @@
-import { Animal } from './Animal';
+import { Animal } from './Animal.mjs';
 
 export class Dog extends Animal {
   // additional prop and method.
@@ -6,7 +6,7 @@ export class Dog extends Animal {
   //   console.log(`${this.name} is barking...`);
   // }
 
-  bark(typeOfbark: String) {
+  bark(typeOfbark) {
     console.log(`${this.name} is barking with ${typeOfbark}`);
   }
 }
