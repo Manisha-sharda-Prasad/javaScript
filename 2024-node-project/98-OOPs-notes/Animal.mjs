@@ -8,7 +8,7 @@ class Animal {
     console.log(`${this.name} is making noise`);
   }
   // 2.1.  special method
-  // Contructor caannot be "overload".
+  // Contructor cannot be "overload".
   // constructor() {} // default, already present.
   constructor(nam) {
     this.name = nam;
