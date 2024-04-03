@@ -73,54 +73,6 @@ Array.prototype.unique = function () {
 };
 console.log(arr.unique()); //[3, 4, 5, 7, 9] new Set
 
-//----------------------------------------------------------------
-//CODING CHALLENGE-------------------
-class Car {
-  constructor(make, speed) {
-    this.make = make;
-    this.speed = speed;
-  }
-  //adding Method -for (increase speed by 10)--
-  accelerate() {
-    this.speed += 10;
-    console.log(`${this.make} is going at ${this.speed} km/h.`);
-  }
-  //adding Method -for (decrease speed by 5)--
-  brake() {
-    this.speed -= 5;
-    console.log(`${this.make} is going at ${this.speed} km/h.`);
-  }
-
-  get speedUS() {
-    return this.speed / 1.6;
-  }
-
-  set speedUS(speed) {
-    this.speed = speed * 1.6;
-  }
-}
-
-//new{}--(passing arguments)--
-const bmw = new Car('BMW', 120);
-const mercedes = new Car('Mercedes', 95);
-const ford = new Car('Ford', 120);
-
-//calling methods--
-bmw.accelerate();
-bmw.accelerate();
-bmw.brake();
-
-mercedes.accelerate();
-mercedes.accelerate();
-mercedes.brake();
-
-console.log(ford.speedUS); // 75 /using method(get) as .property/
-ford.speedUS = 50;
-console.log(ford); //Car {make: 'Ford', speed: 80}
-
-ford.accelerate();
-ford.accelerate();
-ford.brake();
 //-------------------------------------------------------------------------------
 //ES6 Classes---->
 
@@ -269,7 +221,106 @@ steven.birthYear = 2000;
 steven.calcAge(); //37
 console.log(steven.__proto__ === PersonProto); //true
 
+//----------------------------------------------------------------
+//CODING CHALLENGE------------------------------------------------
+//01.)challenge(1)----
+class Car {
+  constructor(make, speed) {
+    this.make = make;
+    this.speed = speed;
+  }
+  //adding Method -for (increase speed by 10)--
+  accelerate() {
+    this.speed += 10;
+    console.log(`${this.make} is going at ${this.speed} km/h.`);
+  }
+  //adding Method -for (decrease speed by 5)--
+  brake() {
+    this.speed -= 5;
+    console.log(`${this.make} is going at ${this.speed} km/h.`);
+  }
+  //02.)
+  get speedUS() {
+    return this.speed / 1.6;
+  }
+
+  set speedUS(speed) {
+    this.speed = speed * 1.6;
+  }
+}
+//03.)----
+//new{}--(passing arguments)--
+const bmw = new Car('BMW', 120);
+const mercedes = new Car('Mercedes', 95);
+const ford = new Car('Ford', 120);
+
+//04.)-----
+//calling methods--
+bmw.accelerate();
+bmw.accelerate();
+bmw.brake();
+
+mercedes.accelerate();
+mercedes.accelerate();
+mercedes.brake();
+
+console.log(ford.speedUS); // 75 /using method(get) as .property/
+ford.speedUS = 50;
+console.log(ford); //Car {make: 'Ford', speed: 80}
+
+ford.accelerate();
+ford.accelerate();
+ford.brake();
+
+//05.)challenge (2)----
+//child class extends Parent class Car--
+
+class EV extends Car {
+  constructor(make, speed, charge) {
+    super(make, speed); //calling constructor of parent class
+    this.charge = charge;
+  }
+  accelerate() {
+    this.speed += 20;
+    console.log(
+      `${this.make} is going at ${this.speed} km/h. with a charge of ${this.charge}`
+    );
+  }
+
+  chargeBattery(chargeTo) {
+    this.chargeTo = chargeTo;
+  }
+}
+const tesla = new EV('Tesla', 120, 23);
+tesla.chargeBattery(90);
+tesla.accelerate();
+tesla.accelerate();
+tesla.brake();
+console.log(tesla);
+
+//bad- not working--
+// const EV = function (make, speed, charge) {
+//   Car.call(this, make, speed);
+//   this.charge = charge;
+// };
+//link the prototypes--
+// EV.prototype = Object.create(Car.prototype);
+
+// EV.prototype.chargeBattery = function (chargeTo) {
+//   this.charge = chargeTo;
+
+//   EV.prototype.accelerate = function () {
+//     this.speed += 20;
+//     this.charge--;
+//     console.log(
+//       `${this.make} is going at ${this.speed} km/h. with a charge of ${this.charge}`
+//     );
+//   };
+// };
+
 //---------------------------------------------------------------
+//---------------------------------------------------------------
+
 //Inheritance Between "Classes": Constructor Functions---->
 
 //classes can inherit from other classes -known as 'inheritance'.
@@ -291,6 +342,7 @@ class Animal {
 //(breed) is also added in ((Parent)) from Extending--
 class Dog extends Animal {
   constructor(name, breed) {
+    // this() <<<<
     super(name); // call the constructor of Super class. /this.name is wrong
     this._breed = breed;
   }
