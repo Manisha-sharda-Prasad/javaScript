@@ -239,7 +239,7 @@ class Car {
     this.speed -= 5;
     console.log(`${this.make} is going at ${this.speed} km/h.`);
   }
-  //02.)
+  //02.)getter /setter
   get speedUS() {
     return this.speed / 1.6;
   }
@@ -280,6 +280,7 @@ class EV extends Car {
     super(make, speed); //calling constructor of parent class
     this.charge = charge;
   }
+  //overiding (parent class) method--
   accelerate() {
     this.speed += 20;
     console.log(

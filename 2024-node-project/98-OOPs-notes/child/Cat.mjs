@@ -1,4 +1,4 @@
-import { Animal } from './Animal.mjs';
+import { Animal } from '../parent/Animal.mjs';
 
 class Cat extends Animal {
   meow() {
